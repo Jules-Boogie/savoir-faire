@@ -1,29 +1,21 @@
-import axios from 'axios';
+const router = require("express").Router();
+const UsersController = require("../../../controllers/users/userController");
 
-export default {
+// Matches with "/api/posts"
+router
+  .route("/users")
+  .get(UsersController.findAll)
+  .post(UsersController.create);
 
-    getUsers: function(){
-//api/users
+// Matches with "/api/posts/:id"
+router
+  .route("/user/:id")
+  .get(UsersController.findOne)
+  .put(UsersController.update)
+  .delete(UsersController.remove);
 
-    },
+router
+.route("/user/:id/products")
+.get(UsersController.findUserProducts)
 
-    getUser: function(){
-//api/user/:id
-
-    },
-
-    addUser: function(){
-///api/users
-
-    }, 
-    updateUser: function(){
-
-//api/user/:id
-
-    },
-    deleteuser: function(){
-//api/user/:id
-
-    }
-
-}
+module.exports = router;

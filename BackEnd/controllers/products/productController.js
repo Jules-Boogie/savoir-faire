@@ -10,8 +10,14 @@ db.Products.find(req,query)
 },
 create: function(req, res) {
     db.Products.create(req.body)
+    .then(({_id}) => db.Users.findOneAndUpdate({}, { $push: { products: _id } }, { new: true }))
       .then(dbResult => res.json(dbResult))
       .catch(error => res.status(422).json(error));
+},
+update: function(req, res) {
+    db.Products.findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
 },
 findOne: function(req, res){
     db.Products.findById(req.params.id)

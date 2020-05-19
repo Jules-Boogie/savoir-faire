@@ -24,12 +24,22 @@ update: function(req, res) {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
 },
+findUserProducts:function(req, res){
+    db.Users.findById(req.params.id)
+    .populate("products")
+    .then(dbUser => {
+      res.json(dbUser);
+    })
+    .catch(err => {
+      res.json(err);
+    });
+},
 remove: function(req, res) {
     db.Users.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+}
 
 
 }
