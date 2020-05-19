@@ -13,7 +13,18 @@ create: function(req, res) {
       .then(dbResult => res.json(dbResult))
       .catch(error => res.status(422).json(error));
 },
-findOne:
+findOne: function(req, res){
+    db.Products.findById(req.params.id)
+    .then(dbResult => res.json(dbResult))
+    .catch(error => res.status(422).json(error));
+},
+remove: function(req, res) {
+    db.Products.findById({ _id: req.params.id })
+      .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  }
+
 
 
 
