@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/savoirefaire");
+
 const userSeed = [{
 firstName: "Juliet",
 secondName: "George",
@@ -26,7 +28,7 @@ const productSeed = [{
 Name: "Flower Dress",
 Description: "Long flower dress ",
 Price: 25,
-Brand:""
+Brand:"Speedos"
 },
 {
     Name: "Jeans",
@@ -45,7 +47,7 @@ Brand:""
 ];
 
 db.Users.remove({})
-  .then(() => db.Post.collection.insertMany(userSeed))
+  .then(() => db.Users.collection.insertMany(userSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
@@ -57,7 +59,7 @@ db.Users.remove({})
 
 
   db.Products.remove({})
-  .then(() => db.Post.collection.insertMany(productSeed))
+  .then(() => db.Products.collection.insertMany(productSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
