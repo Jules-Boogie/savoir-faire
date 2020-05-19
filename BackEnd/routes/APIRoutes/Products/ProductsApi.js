@@ -3,15 +3,13 @@ const productController = require("../../../controllers/products/productControll
 
 // Matches with "/api/posts"
 router
-  .route("/user/product")
+  .route("/products")
   .get(productController.findAll)
   .post(productController.create);
-
 // Matches with "/api/posts/:id"
 router
   .route("/products/:id")
   .get(productController.findOne)
   .put(productController.update)
   .delete(productController.remove);
-
 module.exports = router;
