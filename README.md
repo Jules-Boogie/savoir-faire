@@ -10,3 +10,4 @@ This is the stretch goal:
 - Show a order history where users can confirmed they receieved the item and write a review of the seller or shop. 
 - stores and sellers can have a review system and that can be added to the filter. 
 - user can share an item to social media.
+- users get points with purchase 
