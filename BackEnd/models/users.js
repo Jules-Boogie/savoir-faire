@@ -7,7 +7,9 @@ const userSchema = new Schema({
     username:{type: String, required: true, index: { unique: true }},
     userPhoto:{type: String},
     password: { type: String, required:true},
-    products:[[{ type: Schema.Types.ObjectId, ref: 'products' }]]
+    role:{type: String, required:true},
+    products:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
+    orders:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]]
   });
   
   const User  = mongoose.model("User", userSchema);

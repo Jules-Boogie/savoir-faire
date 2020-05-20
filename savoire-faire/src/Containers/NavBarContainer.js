@@ -3,4 +3,3 @@
 //logo
 // user profile pic with dropdown(purchases page, account settings, logout)
 //notification with bell icon
-
