@@ -9,7 +9,8 @@ const userSchema = new Schema({
     password: { type: String, required:true},
     role:{type: String, required:true},
     products:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
-    orders:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]]
+    orders:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
+    orders:{type: [String]}
   });
   
   const User  = mongoose.model("User", userSchema);

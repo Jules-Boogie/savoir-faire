@@ -39,7 +39,18 @@ remove: function(req, res) {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-}
+},
+AddUserOrders: function (req,res){
+db.Users.findByIdAndUpdate({_id: req.params.id},{$push :{orders: req.body}})
+.then(dbModel => res.json(dbModel))
+.catch(err => res.status(422).json(err));
+},
+AddUserOrders: function (req,res){
+  db.Users.findByIdAndUpdate({_id: req.params.id},{$push :{orders: req.body.id}}) //ask about this please
+  //here I am saying that the req.body.id is the id of the product
+  .then(dbModel => res.json(dbModel))
+  .catch(err => res.status(422).json(err));
+  }
 
-
+  // so we want to take the id of the user and push the id of the product into the orders array? 
 }

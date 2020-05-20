@@ -29,8 +29,28 @@ remove: function(req, res) {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
+findBuyersofOneProduct: function(req, res){
+  db.Products.findOne({_id: req.params.id})
+  .populate('Buyer')
+  .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+},
+findCreatorofOneProduct: function(req, res){
+  db.Products.findOne({_id: req.params.id})
+  .populate('Creator')
+  .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
 
 
+},
+//find the seller and buyer of a product
 
+findSellerAndBuyer: function(res,req){
+  db.Products.findById(req.params.id)
+  .populate('Creator')
+  .populate('Buyer')
+}
 }
