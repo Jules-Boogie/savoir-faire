@@ -10,7 +10,7 @@ const userSchema = new Schema({
     role:{type: String, required:true},
     products:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
     orders:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
-    orders:{type: [String]}
+    // orders:{type: [String]}
   });
   
   const User  = mongoose.model("User", userSchema);

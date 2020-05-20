@@ -6,7 +6,6 @@ const productSchema = new Schema({
     Description: { type: String},
     Price: { type: Number, required:true},
     Quantity: { type: Number, required:true},
-    Creator:{type: Schema.Types.ObjectId, required:true, ref: 'User'},
     Buyer:[{type: Schema.Types.ObjectId, required:true, ref: 'User'}],
     status:{type: Boolean, required:true}
   });
