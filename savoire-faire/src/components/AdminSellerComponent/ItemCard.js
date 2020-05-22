@@ -1,7 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import UpdateProduct from "../AdminSellerComponent/UpdateProduct"
 
 function itemCard(props) {
+    const [showModal, setShowModal] = useState(false);
+
+    const handleModalClose = () => setShowModal(false);
+    
+    const handleModalShow = () => setShowModal(true);
+    const handleFormSubmit = () => {
+        // put request to server. 
+    }
 
     return (
         <div>
@@ -14,7 +23,7 @@ function itemCard(props) {
                             <div className="card-body">
                                 <h5 className="card-title">{props.Name} </h5>
                                 <p className="card-text">{props.Type} {props.Price}</p>
-                                <a href={`/update/products/${props.id}`} className="btn btn-primary"> Update </a>
+                                <a onclick={handleModalShow} href={`/update/products/${props.id}`} className="btn btn-primary"> Update </a>
                                 <button className="btn btn-danger"> Delete </button>
                                 <div className="card-footer">
                                     <small className="text-muted">{`last updated on ${props.Date}`}</small>
@@ -22,6 +31,11 @@ function itemCard(props) {
                             </div>
                         </div>
                     </Link>
+                    <UpdateProduct
+                    showModal={state.showModal}
+                    handleModalClose={handleModalClose}
+                    handleFormSubmit={handleFormSubmit}
+                    />
                 
 
 
