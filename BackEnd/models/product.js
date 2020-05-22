@@ -4,10 +4,15 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema({
     Name: { type: String, required: true },
     Description: { type: String},
-    Price: { type: Number, required:true},
+    Price: { type: String, required:true},
+    Size:[{type: Number, required:true}],
+    Color:[{ype: String, required: true}],
+    Image:{type: [String]},
     Quantity: { type: Number, required:true},
+    itemType: {type: String, required: true },
+    CareInstructions:{type: String, required: true},
     Buyer:[{type: Schema.Types.ObjectId, required:true, ref: 'User'}],
-    status:{type: Boolean, required:true}
+    DateCreated: Date.now()
   });
   
   const Product  = mongoose.model("Product", productSchema);
