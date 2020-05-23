@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WishlistContainer from '../Containers/WishlistContainer'
+import WihlistContainer from "../Containers/WishlistContainer"
 
 
 
@@ -14,7 +14,7 @@ class WishListPage extends Component {
 render(){
 return (
 <div>
-    This is where the WishlistContainer  and states will passed 
+   <wishlistContainer />
 
 
 </div>

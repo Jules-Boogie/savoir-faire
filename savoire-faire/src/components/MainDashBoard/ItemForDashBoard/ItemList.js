@@ -8,7 +8,7 @@ function itemList(props){
 
     return (
         <div>
-            {props.items.length ? (
+            
                 
                     <div className="jumbotron text-center jumbotron-fluid">
                         <div className="container">
@@ -17,9 +17,6 @@ function itemList(props){
                         </div>
                     </div>
 
-                    ) : (
-                    <button> Add an Item</button>
-                    )}
                <CardGroup>
                     {props.items.map(item => (
                         <ItemCard
