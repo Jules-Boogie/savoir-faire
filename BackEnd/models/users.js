@@ -8,7 +8,7 @@ const userSchema = new Schema({
     userPhoto:{type: String},
     password: { type: String, required:true},
     role:{type: String, required:true},
-    products:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
+    favorites:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
     orders:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
     // orders:{type: [String]}
   });

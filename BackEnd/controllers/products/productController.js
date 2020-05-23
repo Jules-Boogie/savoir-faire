@@ -8,11 +8,17 @@ db.Products.find(req.query)
 .then(dbResult => res.json(dbResult))
 .catch(error => res.status(422).json(error))
 },
+// create: function(req, res) {
+//     db.Products.create(req.body)
+//     .then(({_id}) => db.Users.findOneAndUpdate({}, { $push: { products: _id } }, { new: true }))
+//       .then(dbResult => res.json(dbResult))
+//       .catch(error => res.status(422).json(error));
+// },
 create: function(req, res) {
-    db.Products.create(req.body)
-    .then(({_id}) => db.Users.findOneAndUpdate({}, { $push: { products: _id } }, { new: true }))
-      .then(dbResult => res.json(dbResult))
-      .catch(error => res.status(422).json(error));
+  db.Products
+    .create(req.body)
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
 },
 update: function(req, res) {
     db.Products.findOneAndUpdate({ _id: req.params.id }, req.body)
@@ -37,20 +43,6 @@ findBuyersofOneProduct: function(req, res){
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
 },
-findCreatorofOneProduct: function(req, res){
-  db.Products.findOne({_id: req.params.id})
-  .populate('Creator')
-  .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-
-
-},
 //find the seller and buyer of a product
 
-findSellerAndBuyer: function(res,req){
-  db.Products.findById(req.params.id)
-  .populate('Creator')
-  .populate('Buyer')
-}
 }

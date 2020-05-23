@@ -11,8 +11,9 @@ const productSchema = new Schema({
     Quantity: { type: Number, required:true},
     itemType: {type: String, required: true },
     CareInstructions:{type: String, required: true},
+    Fans:[{type: Schema.Types.ObjectId, required:true, ref: 'User'}],
     Buyer:[{type: Schema.Types.ObjectId, required:true, ref: 'User'}],
-    DateCreated: Date.now()
+    Date: new Date(Date.now())
   });
   
   const Product  = mongoose.model("Product", productSchema);
