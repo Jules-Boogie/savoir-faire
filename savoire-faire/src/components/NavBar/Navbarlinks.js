@@ -42,17 +42,6 @@ return (
         <a className="nav-link" href="/admin/users"> All Users</a>
         {/* login as admin only to see */}
       </li>
-      <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Filter
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a className="dropdown-item" href="#"> Lowest Price</a>
-          <a className="dropdown-item" href="#"> Highest Price </a>
-          <a className="dropdown-item" href="#"> Latest</a>
-        </div>
-      </li>
-
     </ul>
     </div>
 

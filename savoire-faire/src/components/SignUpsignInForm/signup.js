@@ -1,84 +1,82 @@
 import React from 'react';
+import { Form } from 'react-bootstrap'
 
 function signUpForm() {
 
-    return (
-        <div>
-            <form className="needs-validation" novalidate>
-                <div classname="form-row">
-                    <div classname="col-md-4 mb-3">
-                        <label for="validationCustom01">First name</label>
-                        <input type="text" className="form-control" id="validationCustom01" placeholder="First name" value="Mark" required/>
-                            <div className="valid-feedback">
-                                Looks good!
-      </div>
-    </div>
-                        <div className="col-md-4 mb-3">
-                            <label for="validationCustom02">Last name</label>
-                            <input type="text" className="form-control" id="" placeholder="Last name" value="Otto" required/>
-                                <div className="valid-feedback">
-                                    Looks good!
-      </div>
-    </div>
-                            <div className="col-md-4 mb-3">
-                                <label for="validationCustomUsername">Username</label>
-                                <div className="input-group">
-                                    <div className="input-group-prepend">
-                                        <span className="input-group-text" id="inputGroupPrepend">@</span>
-                                    </div>
-                                    <input type="text" className="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required/>
-                                        <div className="invalid-feedback">
-                                            Please choose a username.
-        </div>
-      </div>
-                                </div>
-                            </div>
-                            <div className="form-row">
-                                <div className="col-md-6 mb-3">
-                                    <label for="validationCustom03">City</label>
-                                    <input type="text" className="form-control" id="validationCustom03" placeholder="City" required/>
-                                        <div className="invalid-feedback">
-                                            Please provide a valid city.
-      </div>
-    </div>
-                                    <div className="col-md-3 mb-3">
-                                        <label for="validationCustom04">State</label>
-                                        <input type="text" className="form-control" id="validationCustom04" placeholder="State" required/>
-                                            <div className="invalid-feedback">
-                                                Please provide a valid state.
-      </div>
-    </div>
-                                        <div className="col-md-3 mb-3">
-                                            <label for="validationCustom05">Zip</label>
-                                            <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required/>
-                                                <div className="invalid-feedback">
-                                                    Please provide a valid zip.
-      </div>
-    </div>
-                                        </div>
-                                        <div className="form-group">
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="invalidCheck" required/>
-                                                    <label className="form-check-label" for="invalidCheck">
-                                                        Agree to terms and conditions
-      </label>
-                                                    <div className="invalid-feedback">
-                                                        You must agree before submitting.
-      </div>
-    </div>
-                                            </div>
-                                            <button className="btn btn-primary" type="submit">Submit form</button>
-</form>
+  return (
+    <div>
+      <Form>
+        <Form.Row>
+          <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Label> First Name</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="formGridPassword">
+            <Form.Label> Last Name </Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Label>Email</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="formGridPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+        </Form.Row>
+
+        <Form.Group controlId="formGridAddress1">
+          <Form.Label>Address</Form.Label>
+          <Form.Control placeholder="1234 Main St" />
+        </Form.Group>
+
+        <Form.Group controlId="formGridAddress2">
+          <Form.Label>Address 2</Form.Label>
+          <Form.Control placeholder="Apartment, studio, or floor" />
+        </Form.Group>
+
+        <Form.Row>
+          <Form.Group as={Col} controlId="formGridCity">
+            <Form.Label>City</Form.Label>
+            <Form.Control />
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="formGridState">
+            <Form.Label>State</Form.Label>
+            <Form.Control as="select" value="Choose...">
+              <option>Choose...</option>
+              <option>...</option>
+            </Form.Control>
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="formGridZip">
+            <Form.Label>Zip</Form.Label>
+            <Form.Control />
+          </Form.Group>
+        </Form.Row>
+
+        <Form.Group id="formGridCheckbox">
+          <Form.Check type="checkbox" label="Check me out" />
+        </Form.Group>
+
+        <Button variant="primary" type="submit">
+          Submit
+  </Button>
+      </Form>
 
 
-                                    </div>
+    </div>
 
-    )
+  )
 }
 
 export default signUpForm;
 
-                                        {/* <script>
+{/* <script>
 // Example starter JavaScript for disabling form submissions if there are invalid fields
                                             (function() {
                                                 'use strict';

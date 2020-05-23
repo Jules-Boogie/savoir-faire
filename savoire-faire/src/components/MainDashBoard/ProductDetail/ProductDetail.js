@@ -1,5 +1,6 @@
 import React from 'react';
 import CardButton from "./CardBtn"
+import ImageSlide from "./slidingImage"
 
 
 
@@ -8,25 +9,7 @@ function productDetail(props) {
 
         <div className="row">
             <div className="column">
-
-                <div
-                    className="card"
-                    style={{
-                        backgroundImage: props.image ? `url(${props.image})` : "none"
-                    }}
-                >
-                    {!props.image && <i className="fa fa-spinner fa-spin" aria-hidden="true" />}
-                    <CardButton
-                        style={{ opacity: props.image ? 1 : 0 }}
-                        onClick={props.handleBtnClick}
-                        data-value="prev"
-                    />
-                    <CardButton
-                        style={{ opacity: props.image ? 1 : 0 }}
-                        onClick={props.handleBtnClick}
-                        data-value="next"
-                    />
-                </div>
+                <ImageSlide/>
             </div>
             <div className="column">
 
