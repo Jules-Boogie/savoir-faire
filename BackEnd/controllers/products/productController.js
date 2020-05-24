@@ -2,9 +2,9 @@ const db = require("../../models");
 
 module.exports = {
 
-findAllByPrice: function(req, res){
+findAllByProducts: function(req, res){
 db.Products.find(req.query)
-.sort({ price: -1})
+// .sort({ price: -1})
 .then(dbResult => res.json(dbResult))
 .catch(error => res.status(422).json(error))
 },
@@ -14,6 +14,32 @@ db.Products.find(req.query)
 //       .then(dbResult => res.json(dbResult))
 //       .catch(error => res.status(422).json(error));
 // },
+findAllClothing: function (req,res){
+  db.Products.find({ itemType: "clothing"})
+  .then(dbResult => res.json(dbResult))
+.catch(error => res.status(422).json(error))
+},
+findAllShoes: function (req,res){
+  db.Products.find({ itemType: "shoes"})
+  .then(dbResult => res.json(dbResult))
+.catch(error => res.status(422).json(error))
+},
+findAllAccessories: function (req,res){
+  db.Products.find({ itemType: "accessories"})
+  .then(dbResult => res.json(dbResult))
+.catch(error => res.status(422).json(error))
+},
+findAllSkinCare: function(req,res){
+  db.Products.find({ itemType: "skincare"})
+  .then(dbResult => res.json(dbResult))
+.catch(error => res.status(422).json(error))
+},
+findAllBeauty: function (req,res){
+  db.Products.find({ itemType: "beauty"})
+  .then(dbResult => res.json(dbResult))
+.catch(error => res.status(422).json(error))
+},
+
 create: function(req, res) {
   db.Products
     .create(req.body)
