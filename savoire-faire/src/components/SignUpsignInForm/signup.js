@@ -1,10 +1,12 @@
 import React from 'react';
-import { Form } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
+import { Row, Col, Grid } from 'react-bootstrap';
 
 function signUpForm() {
 
   return (
     <div>
+      <h3> Sign Up Below</h3>
       <Form>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridEmail">

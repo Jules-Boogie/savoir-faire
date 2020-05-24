@@ -8,34 +8,37 @@ import AddProductPage from "./Pages/AddProduct"
 import AdminPage from "./Pages/AdminPage"
 import AllUsers from "./Pages/AllUser"
 import ProductDetail from "./Pages/ProductDetail"
-import UpdateProductPage from "./Pages/UpdateProduct"
+import AdminSignIn from "./Pages/AdminSignIn"
+import Authenticate from "./Pages/Authentication"
+// import UpdateProductPage from "./Pages/UpdateProduct"
 
 
 function App() {
 
-  const main = {
-    marginTop: "5rem"
-  }
+  // const main = {
+  //   marginTop: "5rem"
+  // }
 
-  const welcomeContainer = () => {
-    return (
-    <div>
-            <Route exact={true} path="/">
-              <Welcome />
-            </Route>
-          </div>
-    )
-    }
+ 
     //cant figure out how to hide navbar from welcome page.
     //will neeed it for sign in page as well 
     const defaultContainer = () => {
     return (
     <div>
             <NavBar />
-            <main style={main}>
+            <main >
               <Switch>
+              <Route exact={true} path="/">
+              <Welcome />
+            </Route>
                 <Route exact path="/admin/products">
                   <AdminPage />
+                </Route>
+                <Route exact path="/admin/signin">
+                  <AdminSignIn />
+                </Route>
+                <Route exact path="/authenticate">
+                  <Authenticate />
                 </Route>
                 <Route exact path="/products">
                   <DashBoard />
@@ -43,14 +46,13 @@ function App() {
                 <Route exact={true} path="/admin/users">
                   <AllUsers />
                 </Route>
-    
-    
-                <Route exact path="/user/:id/products">
+  
+                <Route exact path="/user/:id/wishlist">
                   < Wishlist />
                 </Route>
-                <Route exact={true} path="/update/products/id">
+                {/* <Route exact={true} path="/update/products/id">
                   <UpdateProductPage />
-                </Route>
+                </Route> */}
 
                 <Route exact={true} path="/products/add">
                   <AddProductPage />
@@ -74,7 +76,6 @@ function App() {
     <Router>
     <Switch>
       <div>
-      <Route exact path = "/" component={welcomeContainer} />
       <Route  component={defaultContainer} />
       </div>
       </Switch>

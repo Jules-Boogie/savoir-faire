@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import UpdateProduct from "../AdminSellerComponent/UpdateProduct"
 
-function itemCard(props) {
+function ItemCard(props) {
     const [showModal, setShowModal] = useState(false);
 
     const handleModalClose = () => setShowModal(false);
@@ -22,7 +22,7 @@ function itemCard(props) {
                             {/* it will be great id the image was slides of images */}
                             <div className="card-body">
                                 <h5 className="card-title">{props.Name} </h5>
-                                <p className="card-text">{props.Type} {props.Price}</p>
+                                <p className="card-text">{props.Type} {props.Price} {props.Quantity}</p>
                                 <a onclick={handleModalShow} href={`/update/products/${props.id}`} className="btn btn-primary"> Update </a>
                                 <button className="btn btn-danger"> Delete </button>
                                 <div className="card-footer">
@@ -32,7 +32,7 @@ function itemCard(props) {
                         </div>
                     </Link>
                     <UpdateProduct
-                    showModal={state.showModal}
+                    showModal={showModal}
                     handleModalClose={handleModalClose}
                     handleFormSubmit={handleFormSubmit}
                     />
@@ -50,4 +50,4 @@ function itemCard(props) {
 
 
 
-export default itemCard;
+export default ItemCard;

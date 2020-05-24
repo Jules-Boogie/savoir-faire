@@ -29,6 +29,7 @@ function itemList(props){
                             Image={item.image}
                             Type={item.type}
                             Date={item.date}
+                            Quantity={item.quantity}
                         />
 
                     ))}

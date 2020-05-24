@@ -1,19 +1,20 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap'
+import { Form, Button, Jumbotron } from 'react-bootstrap'
 
-function signIn(){
+function AdminsignIn(){
 
     return (
 
         <div>
-          <h3> Sign in Below</h3>
+            <Jumbotron className = "text-center">
+            <h1> Sign In as An Administrator</h1> 
+            </Jumbotron>
+            <div className="row">
+                <div className="col-sm-4"></div>
       <Form>
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
     <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
   </Form.Group>
 
   <Form.Group controlId="formBasicPassword">
@@ -26,9 +27,14 @@ function signIn(){
   <Button variant="primary" type="submit">
     Submit
   </Button>
+  <Form.Text className="text-muted">
+      Not a site Administrator? Go to user sign in <a href="/"> here!</a>
+    </Form.Text>
 </Form>
+<div className="col-sm-4"></div>
+</div>
         </div>
     )
 }
 
-export default signIn;
+export default AdminsignIn;

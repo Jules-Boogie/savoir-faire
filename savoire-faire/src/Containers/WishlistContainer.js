@@ -1,10 +1,11 @@
 import React from 'react';
-import ItemCard from "../components/WishlistCard"
+import ItemCard from "../components/WishlistComponent/WishlistCard"
+import { CardGroup } from "react-bootstrap"
 
 // import all wishlist components when ready
 
 
-function wishlistContainer(){
+function wishlistContainer(props){
 
     return (
 

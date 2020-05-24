@@ -29,14 +29,14 @@ return (
         <a className="nav-link" href="/products" style={activePage}> Buy </a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/user/:id/products">Wishlist</a>
+        <a className="nav-link" href="/user/:id/wishlist">Wishlist</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/admin"> Admin</a>  
+        <a className="nav-link" href="/admin/signin"> Admin</a>  
         {/* login as admin only to see */}
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/admin"> Authenticate</a>
+        <a className="nav-link" href="/authenticate"> Authenticate</a>
       </li>
       <li className="nav-item">
         <a className="nav-link" href="/admin/users"> All Users</a>
