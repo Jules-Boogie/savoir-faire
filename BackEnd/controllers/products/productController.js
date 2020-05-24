@@ -2,7 +2,7 @@ const db = require("../../models");
 
 module.exports = {
 
-findAll: function(req, res){
+findAllByPrice: function(req, res){
 db.Products.find(req.query)
 .sort({ price: -1})
 .then(dbResult => res.json(dbResult))
