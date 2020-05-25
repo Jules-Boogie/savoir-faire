@@ -16,7 +16,7 @@ function carouselImage() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=First slide&bg=373940"
+                    src={props.image1}
                     alt="First slide"
                 />
                 <Carousel.Caption>
@@ -27,7 +27,7 @@ function carouselImage() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Second slide&bg=282c34"
+                    src={props.image2}
                     alt="Second slide"
                 />
 
@@ -39,7 +39,7 @@ function carouselImage() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src="holder.js/800x400?text=Third slide&bg=20232a"
+                    src={props.image3}
                     alt="Third slide"
                 />
 

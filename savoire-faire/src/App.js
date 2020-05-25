@@ -70,7 +70,7 @@ function App() {
                   <AddProductPage />
                 </Route>
 
-                <Route exact={true} path="/products/id">
+                <Route exact={true} path="/products/:id">
                   <ProductDetail />
                 </Route>
     

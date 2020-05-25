@@ -4,25 +4,31 @@ export default {
 
     getUsers: function(){
 //api/users
+        return axios.get("/api/users")
 
     },
 
-    getUser: function(){
+    getUser: function(id){
 //api/user/:id
+return axios.get("/api/users/" + id)
 
     },
 
-    addUser: function(){
+    addUser: function(userdata){
 ///api/users
+    return axios.post("/api/users", userdata)
 
     }, 
-    updateUser: function(){
 
-//api/user/:id
+
+    updateUser: function(id){
+
+    return axios.put("/api/users/" + id)
 
     },
-    deleteuser: function(){
+    deleteuser: function(id){
 //api/user/:id
+    return axios.delete("/api/users/" + id)
 
     }
 
