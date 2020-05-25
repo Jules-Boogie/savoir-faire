@@ -10,6 +10,9 @@ import AllUsers from "./Pages/AllUser"
 import ProductDetail from "./Pages/ProductDetail"
 import AdminSignIn from "./Pages/AdminSignIn"
 import Authenticate from "./Pages/Authentication"
+import Wine from "./Pages/Wine"
+import WineComparison from "./Pages/WineComparisonPage"
+import MealPlan from "./Pages/MealPlan"
 // import UpdateProductPage from "./Pages/UpdateProduct"
 
 
@@ -43,6 +46,15 @@ function App() {
                 <Route exact path="/products">
                   <DashBoard />
                 </Route>
+                <Route exact path="/users/winepairing">
+                  <Wine />
+                </Route>
+                <Route exact path="/users/winecomparison">
+                  <WineComparison />
+                </Route>
+                <Route exact path="/users/mealplan">
+                  <MealPlan />
+                </Route>
                 <Route exact={true} path="/admin/users">
                   <AllUsers />
                 </Route>
@@ -75,9 +87,9 @@ function App() {
   return (
     <Router>
     <Switch>
-      <div>
+      
       <Route  component={defaultContainer} />
-      </div>
+      
       </Switch>
     </Router>
 

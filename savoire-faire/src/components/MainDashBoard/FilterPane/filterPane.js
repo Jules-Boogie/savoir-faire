@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav } from "react-bootstrap"
+import DropDown from "../../NavBar/DropDown"
 
 
 function filterPane(){
@@ -23,6 +24,9 @@ return (
   </Nav.Item>
   <Nav.Item>
   <Nav.Link eventKey="link-2"> BEAUTY </Nav.Link>
+  </Nav.Item>
+  <Nav.Item>
+  <DropDown/>
   </Nav.Item>
 </Nav>
 )
