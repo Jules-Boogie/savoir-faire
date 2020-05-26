@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, InputGroup, FormControl } from 'react-bootstrap'
+import { Modal, Button, Form, InputGroup, FormControl } from 'react-bootstrap'
 
 
 function updateProduct(props) {
@@ -14,6 +14,7 @@ function updateProduct(props) {
           <Modal.Header closeButton>
             <Modal.Title>{props.name}</Modal.Title>
           </Modal.Header>
+          <Form >
           <Modal.Body>
             <InputGroup className="mb-3">
               <InputGroup.Prepend>
@@ -24,15 +25,18 @@ function updateProduct(props) {
                 <InputGroup.Text>.00</InputGroup.Text>
               </InputGroup.Append>
             </InputGroup>
+            
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={props.handleModalClose}>
               Cancel
           </Button>
-            <Button variant="primary" onSubmit={props.handleFormSubmit}>
+            <Button variant="primary" onClick={props.handleFormSubmit}>
               Save Changes
           </Button>
           </Modal.Footer>
+          </Form>
+          
         </Modal>
       </>
 

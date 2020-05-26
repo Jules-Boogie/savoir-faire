@@ -4,7 +4,8 @@ import { Form, InputGroup } from 'react-bootstrap'
 
 function addForm(props){
 
-<Form>
+return (
+  <div>
   <Form.Group controlId="exampleForm.ControlInput1">
     <Form.Label>Product Name:</Form.Label>
     <Form.Control type="email" placeholder="name@example.com" />
@@ -77,9 +78,9 @@ function addForm(props){
     <Form.Label> Size: </Form.Label>
     <Form.Control type="range" />
   </Form.Group>
-</Form>
 
-
+  </div>
+)
 
 
 }

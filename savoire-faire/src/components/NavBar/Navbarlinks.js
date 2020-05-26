@@ -1,8 +1,11 @@
-import React from 'react';
-import Logo from "../../SV.png"
 
+import Logo from "../../SV.png"
+import React, { useContext } from 'react'
+import AuthenticationContext from "../../Utils/Context/authenticationContext"
+import { Button } from 'react-bootstrap'
 
 function navLinks(){
+  const authenticate = useContext(AuthenticationContext)
   const navPic = {
     
       maxHeight: "70px",
@@ -28,20 +31,30 @@ return (
       <li className="nav-item">
         <a className="nav-link" href="/products" style={activePage}> Buy </a>
       </li>
+      {authenticate.loggedIn && ( 
       <li className="nav-item">
         <a className="nav-link" href="/user/:id/wishlist">Wishlist</a>
       </li>
+      )}
       <li className="nav-item">
         <a className="nav-link" href="/admin/signin"> Admin</a>  
         {/* login as admin only to see */}
       </li>
+      {!authenticate.loggedIn && (
       <li className="nav-item">
         <a className="nav-link" href="/authenticate"> Authenticate</a>
       </li>
+      )}
       <li className="nav-item">
         <a className="nav-link" href="/admin/users"> All Users</a>
         {/* login as admin only to see */}
       </li>
+      {authenticate.loggedIn && (
+        <Button onClicked={authenticate.logOut}> logout  </Button>
+      )}
+       {authenticate.adminLogin && (
+        <Button onClicked={authenticate.adminlogOut}> logout  </Button>
+      )}
     </ul>
     </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemList from "../components/AdminSellerComponent/Item"
+import AddItemBtn from "../components/AdminSellerComponent/AdditemBTN"
 
 
 
@@ -42,12 +43,14 @@ date:"May 13th"
 
 return (
 
+  <div>
+<AddItemBtn/>
    
 <ItemList items={item}/>
 
 
 
-
+</div>  
 )
 
 

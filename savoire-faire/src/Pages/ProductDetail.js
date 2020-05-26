@@ -9,7 +9,8 @@ class ProductDetailPage extends Component {
     state = {
         product:{},
         comment:"",
-        count:0
+        count:0,
+        comment:[""]
     }
 
     componentDidMount(){
@@ -52,6 +53,7 @@ render(){
           image3={product.Image[2]}
           description={product.Description}
           size={product.Size}
+          comments={product.comments}
           instructions={product.Care}
           handleChange={this.handleInputChange}
           clickedFav={this.handleFavoriteBtn}

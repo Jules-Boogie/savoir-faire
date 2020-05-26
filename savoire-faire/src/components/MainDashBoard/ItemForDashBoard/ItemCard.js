@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import AuthenticationContext from "../../../Utils/Context/authenticationContext"
+import React, { useContext } from 'react'
 function itemCard(props) {
 
+    const authenticate = useContext(AuthenticationContext)
     return (
         <div>
             
@@ -15,8 +17,10 @@ function itemCard(props) {
                             <div className="card-body">
                                 <h5 className="card-title">{props.Name} </h5>
                                 <p className="card-text">{props.Type} {props.Price}</p>
+                                {authenticate.loggedIn && (
                                 <a href={`/products/${props.id}`} className="btn btn-primary"> Details </a>
-                                <button className="btn btn-danger"> Love </button>
+                                )}
+                                {/* <button className="btn btn-danger"> Love </button> */}
                                 {/* Love saves it to user's wishlist */}
                                 {/* It will be nice if it was a heart icons */}
                                 <div className="card-footer">

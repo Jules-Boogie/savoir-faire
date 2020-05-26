@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from 'react-bootstrap'
+import { Modal, Form } from 'react-bootstrap'
 import AddForm from "./AddForm"
 
 
@@ -13,18 +13,20 @@ function addItemModal(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
+            Add An Item
           </Modal.Title>
         </Modal.Header>
+        <Form>
         <Modal.Body>
          <AddForm />
         </Modal.Body>
         <Modal.Footer>
         <Button variant="primary" onClick={props.handleSubmit}>
-            Save Changes
+            Save Changes 
           </Button>
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
+        </Form>
       </Modal>
     );
   }

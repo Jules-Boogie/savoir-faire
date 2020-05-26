@@ -1,76 +1,73 @@
 import React from 'react';
-import { Form, Button } from 'react-bootstrap'
+import { useForm } from 'react-hook-form'
+import { Form, Card, Button } from 'react-bootstrap'
 import { Row, Col, Grid } from 'react-bootstrap';
 
 function signUpForm() {
 
+  const [inputState, inputHandler] = useForm ({
+    email:{
+      input:""
+    },
+    password:{
+      input:""
+    }, 
+    firstname:{
+      input:""
+    },
+    lastname:{
+      input:""
+    }
+
+
+  }, false)
+  
+  const signupSubmithandler = ()=>{
+    console.log(inputState)
+  }
+
   return (
     <div>
+      <Card>
       <h3> Sign Up Below</h3>
       <Form>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label> First Name</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="firstname" placeholder="First Name" />
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label> Last Name </Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="lastname"
+            onInput={}
+             placeholder="Last Name" />
           </Form.Group>
         </Form.Row>
         <Form.Row>
           <Form.Group as={Col} controlId="formGridEmail">
             <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Control type="email" 
+            placeholder="Enter email"
+            onInput={inputHandler}
+             />
           </Form.Group>
 
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+            <Form.Control type="password"
+            onInput={inputHandler} 
+            placeholder="Password" />
           </Form.Group>
         </Form.Row>
 
-        <Form.Group controlId="formGridAddress1">
-          <Form.Label>Address</Form.Label>
-          <Form.Control placeholder="1234 Main St" />
-        </Form.Group>
+        
 
-        <Form.Group controlId="formGridAddress2">
-          <Form.Label>Address 2</Form.Label>
-          <Form.Control placeholder="Apartment, studio, or floor" />
-        </Form.Group>
-
-        <Form.Row>
-          <Form.Group as={Col} controlId="formGridCity">
-            <Form.Label>City</Form.Label>
-            <Form.Control />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridState">
-            <Form.Label>State</Form.Label>
-            <Form.Control as="select" value="Choose...">
-              <option>Choose...</option>
-              <option>...</option>
-            </Form.Control>
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridZip">
-            <Form.Label>Zip</Form.Label>
-            <Form.Control />
-          </Form.Group>
-        </Form.Row>
-
-        <Form.Group id="formGridCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
+        <Button variant="primary" onSubmit={signupSubmithandler}type="submit">
           Submit
   </Button>
       </Form>
-
-
+      </Card>
     </div>
 
   )

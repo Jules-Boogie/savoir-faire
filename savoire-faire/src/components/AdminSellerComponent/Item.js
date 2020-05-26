@@ -2,6 +2,7 @@
 import React from 'react';
 import ItemCard from "./ItemCard"
 import { CardGroup } from 'react-bootstrap';
+import AddItemBtn from "./AdditemBTN"
 
 
 function itemList(props){
@@ -18,7 +19,8 @@ function itemList(props){
                     </div>
 
                     ) : (
-                    <button> Add an Item</button>
+                    <AddItemBtn
+                    />
                     )}
                <CardGroup>
                     {props.items.map(item => (

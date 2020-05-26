@@ -1,9 +1,11 @@
 import React from 'react'
 import { Dropdown } from "react-bootstrap"
-
+import AuthenticationContext from "../../Utils/Context/authenticationContext"
+import React, {useContext} from 'react'
 
 
 function dropDown(){
+  const authenticate = useContext(AuthenticationContext)
 
     return(
 
@@ -14,10 +16,18 @@ function dropDown(){
   </Dropdown.Toggle>
 
   <Dropdown.Menu>
+    {authenticate.loggedIn && (
     <Dropdown.Item href="/users/winepairing"> Wine Pairing </Dropdown.Item>
+    )}
+    {authenticate.loggedIn && (
     <Dropdown.Item href="/users/winecomparison"> Wine Comparison </Dropdown.Item>
+    )}
+    {authenticate.loggedIn && (
     <Dropdown.Item href="/users/mealplan">Meal Plan</Dropdown.Item>
-    <Dropdown.Item href="#/action-3"> Fashion </Dropdown.Item>
+    )}
+    {authenticate.loggedIn && (
+    <Dropdown.Item href="#/action-3"> Health and Fashion </Dropdown.Item>
+    )}
   </Dropdown.Menu>
 </Dropdown>
 

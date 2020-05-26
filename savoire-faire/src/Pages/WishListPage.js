@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
-import WihlistContainer from "../Containers/WishlistContainer"
+import React from 'react';
+import WishlistContainer from "../Containers/WishlistContainer"
+import { useParams } from "react-router-dom"
 
 
 
-class WishListPage extends Component {
 
 // define states 
 
 // define methods 
 
+function WishListPage() {
+  const userId =  useParams().userid;
 
+  // we want to retrieve all of the user's wishlist item. using their id. 
 
-render(){
+  // so finduserby userid and pop
 return (
 <div>
-   <wishlistContainer />
+   <WishlistContainer />
 
 
 </div>
@@ -23,7 +26,7 @@ return (
 )
 
 
-}
+
 
 
 
