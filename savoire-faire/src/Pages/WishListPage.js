@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import WishlistContainer from "../Containers/WishlistContainer"
 import { useParams } from "react-router-dom"
+import API from '../Utils/API/Users/API_Users';
+
 
 
 
@@ -10,14 +12,24 @@ import { useParams } from "react-router-dom"
 // define methods 
 
 function WishListPage() {
-  const userId =  useParams().userid;
+  const userId =  useParams().id;
 
-  // we want to retrieve all of the user's wishlist item. using their id. 
+  const [items, setItems] = useState([])
+
+  const loadFavorites = (id) =>{
+    API.populateUserFavorites(id)
+    .then(res => setItems(res.data))
+    .catch(err => console.log(err));
+  }
+  useEffect(() => {
+    loadFavorites(userId)
+  })
+ 
 
   // so finduserby userid and pop
 return (
 <div>
-   <WishlistContainer />
+   <WishlistContainer items={items} />
 
 
 </div>

@@ -42,7 +42,7 @@ router
 
 router
   .route("/:id/products")
-  .get(UsersController.findUserProducts)
+  .get(UsersController.findUserFavorites)
 
   
 module.exports = router;

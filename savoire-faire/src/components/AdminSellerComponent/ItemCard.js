@@ -51,7 +51,10 @@ const handleFormSubmit = (event, id) => {
     // send put request to server with the new added value
     event.preventDefault();
     API.updateProduct(id, {
-        
+        Name:productState.name,
+        Description:productState.Description,
+        Price: productState.price,
+        Quantity:productState.Quantity  
     })
 }
 
@@ -85,7 +88,7 @@ return (
                     <UpdateProduct
                         showModal={showModal}
                         handleModalClose={handleModalClose}
-                        handleFormSubmit={handleFormSubmit}
+                        handleFormSubmit={()=>handleFormSubmit(props.key)}
                         price={productState.price}
                         name={productState.name}
                         description={productState.Description}

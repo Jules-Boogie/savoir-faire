@@ -10,7 +10,6 @@ import Accessories from "./Pages/Accessories"
 import SkinCare from "./Pages/SkinCare"
 import Beauty from "./Pages/Beauty"
 import Wishlist from "./Pages/WishListPage"
-import AddProductPage from "./Pages/AddProduct"
 import AdminPage from "./Pages/AdminPage"
 import AllUsers from "./Pages/AllUser"
 import ProductDetail from "./Pages/ProductDetail"
@@ -87,9 +86,6 @@ function App() {
         </Route>
         <Route exact={true} path="/admin/users">
           <AllUsers />
-        </Route>
-        <Route exact={true} path="/products/add">
-          <AddProductPage />
         </Route>
         <Route exact={true} path="/">
           <Welcome />

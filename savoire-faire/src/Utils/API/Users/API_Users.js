@@ -26,6 +26,9 @@ return axios.get("/api/users/" + id)
     return axios.put("/api/users/" + id)
 
     },
+    populateUserFavorites: function(id){
+        return axios.get("/api/users/" + id + "/products")
+    },
     deleteuser: function(id){
 //api/user/:id
     return axios.delete("/api/users/" + id)
