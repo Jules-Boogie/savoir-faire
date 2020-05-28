@@ -1,5 +1,4 @@
 import React from 'react';
-import CardButton from "./CardBtn"
 import ImageSlide from "./slidingImage"
 import { InputGroup, FormControl, Form, Button } from "react-bootstrap"
 
@@ -39,7 +38,7 @@ function productDetail(props) {
         <h4> Color: {props.color} </h4>
 
         <button onClick={props.clickedfav} className="p-3 mb-2 bg-warning text-dark"> Favorite </button>
-        <button onClick={props.clickedbuy} className="p-3 mb-2 bg-warning text-dark"> Buy </button>
+        <button onClick={props.clickedbuy} className="p-3 mb-2 bg-warning text-dark"> Buy Now </button>
 
         <h4> Description: </h4>
         <p>  {props.description} </p>

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Carousel } from 'react-bootstrap'
 
-function carouselImage() {
+function CarouselImage(props) {
 
 
 
@@ -54,7 +54,7 @@ function carouselImage() {
     );
 }
 
-export default carouselImage;
+export default CarouselImage;
 
 
 

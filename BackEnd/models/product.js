@@ -13,6 +13,7 @@ const productSchema = new Schema({
     Care:{type: String, required: true},
     Fans:[{type: Schema.Types.ObjectId, required:true, ref: 'User'}],
     Buyer:[{type: Schema.Types.ObjectId, required:true, ref: 'User'}],
+    Orders:{type: Number, required:true},
     Comments:{type:[String]},
     Date: new Date(Date.now())
   });

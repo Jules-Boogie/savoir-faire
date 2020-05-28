@@ -9,7 +9,7 @@ const userSchema = new Schema({
     password: { type: String, required:true},
     role:{type: String, required:true},
     favorites:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
-    orders:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
+    cart:[{ type: Schema.Types.ObjectId, ref: 'shoppingCart' }],
     // orders:{type: [String]}
   });
   

@@ -1,11 +1,14 @@
 import React from 'react'
-import { Modal } from 'react-bootstrap'
+import { Modal, Button } from 'react-bootstrap'
 
 
 function deleteModal(props){
 
-
-<Modal.Dialog {...props}>
+  return (
+<div>
+<>
+<Modal show={props.showModal} onHide={props.handleModalClose}>
+<Modal.Dialog >
   <Modal.Header closeButton>
     <Modal.Title> Are you sure? </Modal.Title>
   </Modal.Header>
@@ -19,7 +22,10 @@ function deleteModal(props){
     <Button onClick={props.Delete}variant="danger"> Yes, please! </Button>
   </Modal.Footer>
 </Modal.Dialog>
-
+</Modal>
+</>
+</div>
+  )
 
 }
 

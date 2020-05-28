@@ -4,7 +4,7 @@ import React, { useContext } from 'react'
 import AuthenticationContext from "../../Utils/Context/authenticationContext"
 import { Button } from 'react-bootstrap'
 
-function navLinks(){
+function NavLinks(){
   const authenticate = useContext(AuthenticationContext)
   const navPic = {
     
@@ -33,7 +33,12 @@ return (
       </li>
       {authenticate.loggedIn && ( 
       <li className="nav-item">
-        <a className="nav-link" href="/user/:id/wishlist">Wishlist</a>
+        <a className="nav-link" href="/users/:id/products">Wishlist</a>
+      </li>
+      )}
+      {authenticate.loggedIn && ( 
+      <li className="nav-item">
+        <a className="nav-link" href="/users/:id/cart"> Cart </a>
       </li>
       )}
       <li className="nav-item">
@@ -50,10 +55,10 @@ return (
         {/* login as admin only to see */}
       </li>
       {authenticate.loggedIn && (
-        <Button onClicked={authenticate.logOut}> logout  </Button>
+        <Button onClick={authenticate.logOut}> logout  </Button>
       )}
        {authenticate.adminLogin && (
-        <Button onClicked={authenticate.adminlogOut}> logout  </Button>
+        <Button onClick={authenticate.adminlogOut}> logout  </Button>
       )}
     </ul>
     </div>
@@ -65,4 +70,4 @@ return (
 
 }
 
-export default navLinks;
+export default NavLinks;

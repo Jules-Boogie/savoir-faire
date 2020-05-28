@@ -1,8 +1,8 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import AuthenticationContext from "../../../Utils/Context/authenticationContext"
 import React, { useContext } from 'react'
-function itemCard(props) {
+function ItemCard(props) {
 
     const authenticate = useContext(AuthenticationContext)
     return (
@@ -43,4 +43,4 @@ function itemCard(props) {
 
 
 
-export default itemCard;
+export default ItemCard;

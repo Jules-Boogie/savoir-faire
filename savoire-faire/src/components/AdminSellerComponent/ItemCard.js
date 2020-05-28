@@ -27,7 +27,7 @@ function ItemCard(props) {
         <div>
 
 
-            <Link to={`/update/products/${props.id}`}>
+            
                 <div className="card" style={{ width: "18rem" }}>
                     <img className="card-img-top" src={props.Image} />
                     {/* it will be great id the image was slides of images */}
@@ -35,7 +35,7 @@ function ItemCard(props) {
                         <h5 className="card-title">{props.Name} </h5>
                         <p className="card-text">{props.Type} {props.Price} {props.Quantity}</p>
                         <>
-                        <a onclick={handleModalShow} href={`/update/products/${props.id}`} className="btn btn-primary"> Update </a>
+                        <a onClick={handleModalShow}  className="btn btn-primary"> Update </a>
                         <UpdateProduct
                             showModal={showModal}
                             handleModalClose={handleModalClose}
@@ -47,7 +47,8 @@ function ItemCard(props) {
                             <DeleteModal
                                 Cancel={cancelDeleteActionhandler}
                                 Delete={confirmDeleteHandler}
-                                show={showDeleteModal}
+                                handleModalClose={cancelDeleteActionhandler}
+                                showModal={showDeleteModal}
                             />
                         </>
                         <div className="card-footer">
@@ -55,7 +56,7 @@ function ItemCard(props) {
                         </div>
                     </div>
                 </div>
-            </Link>
+            
 
 
 

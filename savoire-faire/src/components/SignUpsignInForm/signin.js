@@ -1,23 +1,21 @@
-import React from 'react';
-import { useForm } from 'react-hook-form'
-import React, { useContext } from 'react'
+
+// import { useForm } from 'react-hook-form'
+import { useForm } from "react-hook-form";
+import React, { useContext} from 'react'
 import { Form, Button, Card } from 'react-bootstrap'
 import AuthenticationContext from "../../Utils/Context/authenticationContext"
 
-function signIn(){
+const SignIn =() => {
   const authenticate = useContext(AuthenticationContext)
 
-  const [inputState, inputHandler] = useForm ({
-    email:{
-      input:""
-    },
-    password:{
-      input:""
-    }
-  }, false)
+  const {formState, inputHandler} = useForm({
+    email:{value:''}, password:{value:''}
+     
+    
+  }, false);
   
   const signinSubmithandler = ()=>{
-    console.log(inputState)
+    console.log("submitted")
     authenticate.logIn()
 
   }
@@ -32,11 +30,12 @@ function signIn(){
       <Form>
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
-    <Form.Control 
+    <Form.Control
+    element="input" 
     type="email" 
     placeholder="Enter email"
     onInput={inputHandler}
-    errorText = "please enter valid email"
+    errortext = "please enter valid email"
     />
     <Form.Text className="text-muted">
       We'll never share your email with anyone else.
@@ -45,16 +44,15 @@ function signIn(){
 
   <Form.Group controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" 
+    <Form.Control 
+    element="input"
+    type="password" 
     placeholder="Password" 
     onInput={inputHandler}
-    errorText="please enter valid password"
+    errortext="please enter valid password"
     />
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" onSubmit={signinSubmithandler} disabled={!inputState} type="submit">
+    </Form.Group>
+  <Button variant="primary" onClick={signinSubmithandler} disabled={!formState} type="submit">
     Login
   </Button>
 </Form>
@@ -63,4 +61,4 @@ function signIn(){
     )
 }
 
-export default signIn;
+export default SignIn;

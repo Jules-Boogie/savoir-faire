@@ -1,10 +1,10 @@
-import React from 'react'
+
 import { Dropdown } from "react-bootstrap"
 import AuthenticationContext from "../../Utils/Context/authenticationContext"
 import React, {useContext} from 'react'
 
 
-function dropDown(){
+function DropDown(){
   const authenticate = useContext(AuthenticationContext)
 
     return(
@@ -43,4 +43,4 @@ function dropDown(){
 
 }
 
-export default dropDown;
+export default DropDown;

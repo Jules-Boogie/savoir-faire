@@ -1,6 +1,6 @@
-import React from 'react';
+
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import NavBar from "../src/Containers/NavBarContainer"
 import Welcome from "./Pages/WelcomePage"
 import DashBoard from "./Pages/MainDashBoard"
@@ -15,6 +15,7 @@ import Wine from "./Pages/Wine"
 import WineComparison from "./Pages/WineComparisonPage"
 import MealPlan from "./Pages/MealPlan"
 import AuthenticationContext from "./Utils/Context/authenticationContext"
+import ShoppingCartPage from "./Pages/ShoppingCart"
 // import UpdateProductPage from "./Pages/UpdateProduct"
 
 
@@ -64,8 +65,11 @@ function App() {
       <Route exact={true} path="/products/:id">
         <ProductDetail />
       </Route>
-      <Route exact path="users/:userid/products">
+      <Route exact path="/users/:id/products">
         <Wishlist />
+      </Route>
+      <Route exact path="/users/:id/cart">
+        <ShoppingCartPage />
       </Route>
       <Redirect to="/" />
       </Switch>
@@ -100,7 +104,7 @@ function App() {
       <Route exact={true} path="/products/:id">
         <ProductDetail />
       </Route>
-      <Route exact path="users/:userid/products">
+      <Route exact path="users/:id/products">
         <Wishlist />
       </Route>
       </Switch>
@@ -116,79 +120,93 @@ function App() {
       <Route exact path="/authenticate">
         <Authenticate />
       </Route>
-
       <Route exact path="/admin/signin">
         <AdminSignIn />
       </Route>
       <Route exact path="/products">
       <DashBoard />
     </Route>
+    <Route exact path="/admin/products">
+        <AdminPage />
+      </Route>
+      <Route exact={true} path="/admin/users">
+        <AllUsers />
+      </Route>
     </Switch>
     );
   }
 
 
-  const defaultContainer = () => {
-    return (
-      <div>
-        <AuthenticationContext value={{ loggedIn: loggedIn, logIn: login, logOut: logoff, isAdmin: isAdmin, adminLogin: adminLogin }}>
-          <NavBar />
-          <main >
-            <Switch>
-              <Route exact={true} path="/">
-                <Welcome />
-              </Route>
-              <Route exact path="/admin/products">
-                <AdminPage />
-              </Route>
-              <Route exact path="/admin/signin">
-                <AdminSignIn />
-              </Route>
-              <Route exact path="/authenticate">
-                <Authenticate />
-              </Route>
-              <Route exact path="/products">
-                <DashBoard />
-              </Route>
-              <Route exact path="/users/winepairing">
-                <Wine />
-              </Route>
-              <Route exact path="/users/winecomparison">
-                <WineComparison />
-              </Route>
-              <Route exact path="/users/mealplan">
-                <MealPlan />
-              </Route>
-              <Route exact={true} path="/admin/users">
-                <AllUsers />
-              </Route>
+  // const defaultContainer = () => {
+  //   return (
+  //     <div>
+  //       <AuthenticationContext.Provider value={{ loggedIn: loggedIn, logIn: login, logOut: logoff, isAdmin: isAdmin, adminLogin: adminLogin }}>
+  //         <NavBar />
+  //         <main >
+            
+  //             {/* <Route exact={true} path="/">
+  //               <Welcome />
+  //             </Route>
+  //             <Route exact path="/admin/products">
+  //               <AdminPage />
+  //             </Route>
+  //             <Route exact path="/admin/signin">
+  //               <AdminSignIn />
+  //             </Route>
+  //             <Route exact path="/authenticate">
+  //               <Authenticate />
+  //             </Route>
+  //             <Route exact path="/products">
+  //               <DashBoard />
+  //             </Route>
+  //             <Route exact path="/users/winepairing">
+  //               <Wine />
+  //             </Route>
+  //             <Route exact path="/users/winecomparison">
+  //               <WineComparison />
+  //             </Route>
+  //             <Route exact path="/users/mealplan">
+  //               <MealPlan />
+  //             </Route>
+  //             <Route exact={true} path="/admin/users">
+  //               <AllUsers />
+  //             </Route>
+  //             <Route exact path="/users/:id/cart">
+  //               <ShoppingCartPage />
+  //             </Route>
+  //             <Route exact={true} path="/products/add">
+  //               <AddProductPage />
+  //             </Route>
 
-              <Route exact={true} path="/products/add">
-                <AddProductPage />
-              </Route>
+  //             <Route exact={true} path="/products/:id">
+  //               <ProductDetail />
+  //             </Route>
 
-              <Route exact={true} path="/products/:id">
-                <ProductDetail />
-              </Route>
-
-              <Route exact path="users/:userid/products">
-                <Wishlist />
-              </Route>
-              <Redirect to="/" />
-            </Switch>
-          </main>
-        </AuthenticationContext>
-      </div>
-    )
-  }
+  //             <Route exact path="users/:userid/products">
+  //               <Wishlist />
+  //             </Route>
+  //             <Redirect to="/" /> */}
+  //           {routes}
+  //         </main>
+  //       </AuthenticationContext.Provider>
+  //     </div>
+  //   )
+  // }
 
   return (
     <Router>
-      <Switch>
+      <div>
+        <AuthenticationContext.Provider value={{ loggedIn: loggedIn, logIn: login, logOut: logoff, isAdmin: isAdmin, adminLogin: adminLogin }}>
+          <NavBar />
+          <main >
+      
 
-        <Route component={defaultContainer} />
+         {routes}
 
-      </Switch>
+        
+          </main>
+        </AuthenticationContext.Provider>
+      </div>
     </Router>
 
 

@@ -21,13 +21,13 @@ class ProductDetailPage extends Component {
  
 handleFavoriteBtn = () =>{
     this.setState({
-        count: count + 1
+        count: this.state.count + 1
     })
 
 }
 
 handleInputChange =(event)=>{
-    setState({ comment: event.target.value });
+    this.setState({ comment: event.target.value });
 }
 
 handleCommentSubmit = () =>{
@@ -45,16 +45,16 @@ render(){
         <div>
           <ProductDetail
           
-          name={product.Name}
-          price={product.Price}
-          color={product.Color}
-          image1={product.Image[0]}
-          image2={product.Image[1]}
-          image3={product.Image[2]}
-          description={product.Description}
-          size={product.Size}
-          comments={product.comments}
-          instructions={product.Care}
+          name={this.state.product.Name}
+          price={this.state.product.Price}
+          color={this.state.product.Color}
+          image1={this.state.product.Image[0]}
+          image2={this.state.product.Image[1]}
+          image3={this.state.product.Image[2]}
+          description={this.state.product.Description}
+          size={this.state.product.Size}
+          comments={this.state.product.comments}
+          instructions={this.state.product.Care}
           handleChange={this.handleInputChange}
           clickedFav={this.handleFavoriteBtn}
           value={this.state.comment}

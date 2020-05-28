@@ -10,10 +10,12 @@ module.exports = {
   },
   create: function (req, res) {
     db.Users.create(req.body)
+    .then(({_id}) => db.ShoppingCart.findOneAndUpdate({}, {user: _id }, { new: true }))
       .then(dbResult => res.json(dbResult))
       .catch(error => res.status(422).json(error));
 
   },
+  
   findOne: function (req, res) {
     db.Users.findById(req.params.id)
       .then(dbResult => res.json(dbResult))
@@ -36,7 +38,7 @@ module.exports = {
   },
   findUserOrders: function (req, res) {
     db.Users.findById(req.params.id)
-      .populate("orders")
+      .populate("cart")
       .then(dbUser => {
         res.json(dbUser);
       })

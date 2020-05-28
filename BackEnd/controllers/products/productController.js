@@ -51,6 +51,12 @@ update: function(req, res) {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
 },
+updateProductAfterCart: function(req, res) {
+  db.Products.findOneAndUpdate({ _id: req.params.id }, { $inc: { quantity: -1, orders: 1 } } )
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+},
+
 findOne: function(req, res){
     db.Products.findById(req.params.id)
     .then(dbResult => res.json(dbResult))

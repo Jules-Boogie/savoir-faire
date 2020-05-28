@@ -4,7 +4,7 @@ import AddItemModal from "./AddformComponent"
 
 
 
-function addButton(){
+function AddButton(){
 
     const [modalShow, setModalShow] = React.useState(false);
 
@@ -24,4 +24,4 @@ function addButton(){
   );
 }
 
-export default addButton;
+export default AddButton;

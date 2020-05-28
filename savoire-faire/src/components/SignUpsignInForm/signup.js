@@ -3,9 +3,9 @@ import { useForm } from 'react-hook-form'
 import { Form, Card, Button } from 'react-bootstrap'
 import { Row, Col, Grid } from 'react-bootstrap';
 
-function signUpForm() {
+function SignUpForm() {
 
-  const [inputState, inputHandler] = useForm ({
+  const {inputState, inputHandler} = useForm ({
     email:{
       input:""
     },
@@ -40,7 +40,7 @@ function signUpForm() {
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label> Last Name </Form.Label>
             <Form.Control type="lastname"
-            onInput={}
+            onInput={inputHandler}
              placeholder="Last Name" />
           </Form.Group>
         </Form.Row>
@@ -73,7 +73,7 @@ function signUpForm() {
   )
 }
 
-export default signUpForm;
+export default SignUpForm;
 
 {/* <script>
 // Example starter JavaScript for disabling form submissions if there are invalid fields
