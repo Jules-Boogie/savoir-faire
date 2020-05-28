@@ -32,6 +32,7 @@ function itemList(props){
                             Type={item.type}
                             Date={item.date}
                             Quantity={item.quantity}
+                            
                         />
 
                     ))}

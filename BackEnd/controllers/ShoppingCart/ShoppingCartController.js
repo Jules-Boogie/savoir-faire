@@ -24,11 +24,18 @@ RemoveItem: function (req, res) {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
 },
-UpdateQuantity: function (req, res) {
+DecreaseQuantity: function (req, res) {
     db.ShoppingCart.findByIdAndUpdate({ _id: req.params.id}, { $inc: {"items.$.quantity": -1 }, $position:req.body.id }) 
     //db.ShoppingCart.findByIdAndUpdate({ _id: req.params.id, "items.item":req.body.item }, { $inc: {"items.$.quantity": -1 }}) option 2
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+
+},
+IncreaseQuantity: function (req, res) {
+  db.ShoppingCart.findByIdAndUpdate({ _id: req.params.id}, { $inc: {"items.$.quantity": 1 }, $position:req.body.id }) 
+  //db.ShoppingCart.findByIdAndUpdate({ _id: req.params.id, "items.item":req.body.item }, { $inc: {"items.$.quantity": 1 }}) option 2
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
 
 },
 

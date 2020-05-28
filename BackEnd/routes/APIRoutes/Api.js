@@ -16,7 +16,8 @@ router
 router
 .route("/shoppingcart/:id")
 .get(CartController.findOne)
-.put(CartController.UpdateQuantity)
+.put(CartController.IncreaseQuantity)
+.put(CartController.DecreaseQuantity)
 .delete(CartController.RemoveItem)
 .put(CartController.AddItem)
 

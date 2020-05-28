@@ -13,8 +13,11 @@ export default {
   deleteProduct: function(id) {
     return axios.delete("/api/users/products/" + id);
   },
+  updateProduct: function(id, prodData){
+    return axios.put("/api/users/products" + id, prodData)
+  },
   // Save a product to the database
-  saveProduct: function(bookData) {
-    return axios.post("/api/users/products", bookData);
+  saveProduct: function(prodData) {
+    return axios.post("/api/users/products", prodData);
   }
 };

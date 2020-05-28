@@ -7,23 +7,22 @@ function filterPane(){
 
 return (
     <Nav
-  activeKey="/home"
-  onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
+  
 >
   <Nav.Item>
-    <Nav.Link href="/home">CLOTHING</Nav.Link>
+    <Nav.Link href="/products/clothing">CLOTHING</Nav.Link>
   </Nav.Item>
   <Nav.Item>
-    <Nav.Link eventKey="link-1">SHOES</Nav.Link>
+    <Nav.Link href="/products/shoes">SHOES</Nav.Link>
   </Nav.Item>
   <Nav.Item>
-    <Nav.Link eventKey="link-2">ACCESSORIES</Nav.Link>
+    <Nav.Link href="/products/accessories">ACCESSORIES</Nav.Link>
   </Nav.Item>
   <Nav.Item>
-  <Nav.Link eventKey="link-2">SKINCARE</Nav.Link>
+  <Nav.Link href="/products/skincare">SKINCARE</Nav.Link>
   </Nav.Item>
   <Nav.Item>
-  <Nav.Link eventKey="link-2"> BEAUTY </Nav.Link>
+  <Nav.Link href="/products/beauty"> BEAUTY </Nav.Link>
   </Nav.Item>
   <Nav.Item>
   <DropDown/>

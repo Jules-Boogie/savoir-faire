@@ -14,6 +14,13 @@ const shoppingCartSchema = new Schema({
     sold:false
 
 
+}, { toJSON: { virtuals: true } }
+)
+shoppingCartSchema.virtual("totalPrice").get(function(){
+
+    return this.items.reduce((all, item) => {
+        return all + item.price
+    },0)
 })
 
 //need a totalquantity and totalprice virtual

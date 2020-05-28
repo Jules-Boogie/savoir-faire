@@ -36,11 +36,11 @@ return (
         <a className="nav-link" href="/users/:id/products">Wishlist</a>
       </li>
       )}
-      {authenticate.loggedIn && ( 
+      {/* {authenticate.loggedIn && (  */}
       <li className="nav-item">
         <a className="nav-link" href="/users/:id/cart"> Cart </a>
       </li>
-      )}
+      {/* )} */}
       <li className="nav-item">
         <a className="nav-link" href="/admin/signin"> Admin</a>  
         {/* login as admin only to see */}
