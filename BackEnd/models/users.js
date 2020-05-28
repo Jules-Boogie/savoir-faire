@@ -9,8 +9,14 @@ const userSchema = new Schema({
     password: { type: String, required:true},
     role:{type: String, required:true},
     favorites:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
-    cart:[{ type: Schema.Types.ObjectId, ref: 'shoppingCart' }],
-    // orders:{type: [String]}
+    cart:{items: [
+      {
+      item: { type: Schema.Types.ObjectId, required: true, ref: 'Product' },
+      quantity: { type: Number, required: true },
+      price: { type: Number, required: true }
+  }]}
+
+
   });
   
   const User  = mongoose.model("User", userSchema);

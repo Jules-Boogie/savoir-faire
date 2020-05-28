@@ -25,6 +25,7 @@ function itemList(props){
                <CardGroup>
                     {props.items.map(item => (
                         <ItemCard
+                        // change this to match the data coming from mongodb
                             key={item.id}
                             Name={item.name}
                             Price={item.price}

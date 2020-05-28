@@ -20,7 +20,7 @@ AddItem: function (req, res) {
       .catch(err => res.status(422).json(err));
 },
 RemoveItem: function (req, res) {
-    db.ShoppingCart.findByIdAndUpdate({ _id: req.params.id }, { $pull: { items: {item: req.body.id} } }) 
+    db.ShoppingCart.findByIdAndUpdate({ _id: req.params.id }, { $set: { ShoppingCart: {items: req.body} } }) 
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
 },

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import API from "../Utils/API/Products/API_product"
+import APIUser from "../Utils/API/Users/API_Users"
 import ProductDetail from "../components/MainDashBoard/ProductDetail/ProductDetail"
 // import { useParams } from "react-router-dom";
 
@@ -10,7 +11,10 @@ class ProductDetailPage extends Component {
         product:{},
         comment:"",
         count:0,
-        comment:[""]
+        comments:[""],
+        cartitem:{},
+        cartitemQuantity:0,
+        productid:""
     }
 
     componentDidMount(){
@@ -30,8 +34,22 @@ handleInputChange =(event)=>{
     this.setState({ comment: event.target.value });
 }
 
-handleCommentSubmit = () =>{
+handleCommentSubmit = (id) =>{
     // find the product by id and push to the comment array.
+    API.saveProductComment(id, {
+        comment: this.state.comment
+    })
+}
+
+handleBuyBtn =(id) =>{
+    this.setState({ cartitemQuantity: this.state.cartitemQuantity + 1, 
+        productid:this.props.match.params.id
+    })
+    APIUser.addtoCart(id,{
+        item:this.state.productid,
+        quantity:this.state.cartitemPrice,
+        price:this.state.product.price
+    })
 }
 
 
@@ -60,6 +78,7 @@ render(){
           value={this.state.comment}
           commentSubmit={this.handleCommentSubmit}
           likeCount={this.state.count}
+          clickedBuy={this.handleBuyBtn}
 
           />
         </div>

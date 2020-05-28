@@ -52,7 +52,7 @@ update: function(req, res) {
       .catch(err => res.status(422).json(err));
 },
 updateProductAfterCart: function(req, res) {
-  db.Products.findOneAndUpdate({ _id: req.params.id }, { $inc: { quantity: -1, orders: 1 } } )
+  db.Products.findOneAndUpdate({ _id: req.params.id }, { $set: {  quantity: req.body.quantity, orders: req.body.orders  } })
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err));
 },
@@ -71,10 +71,15 @@ remove: function(req, res) {
 findBuyersofOneProduct: function(req, res){
   db.Products.findOne({_id: req.params.id})
   .populate('Buyer')
-  .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+  .then(dbResult => res.json(dbResult))
+  .catch(error => res.status(422).json(error));
+
 },
 //find the seller and buyer of a product
+AddComments: function(req,res){
+  db.Products.findByIdAndUpdate({_id:req.params.id}, {$push: {Comments:req.body} })
+  .then(dbResult => res.json(dbResult))
+  .catch(error => res.status(422).json(error));
+},
 
 }

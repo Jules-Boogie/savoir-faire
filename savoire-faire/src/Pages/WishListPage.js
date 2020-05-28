@@ -24,12 +24,19 @@ function WishListPage() {
   useEffect(() => {
     loadFavorites(userId)
   })
+   const handleRemoveBtn=(id)=>{
+    API.removeUserfavorite({id}, {
+      
+    })
+   }
  
 
   // so finduserby userid and pop
 return (
 <div>
-   <WishlistContainer items={items} />
+   <WishlistContainer items={items}
+   clicked
+   />
 
 
 </div>

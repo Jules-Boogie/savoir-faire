@@ -10,7 +10,6 @@ module.exports = {
   },
   create: function (req, res) {
     db.Users.create(req.body)
-    .then(({_id}) => db.ShoppingCart.findOneAndUpdate({}, {user: _id }, { new: true }))
       .then(dbResult => res.json(dbResult))
       .catch(error => res.status(422).json(error));
 
@@ -36,7 +35,7 @@ module.exports = {
         res.json(err);
       });
   },
-  findUserOrders: function (req, res) {
+  findUserCart: function (req, res) {
     db.Users.findById(req.params.id)
       .populate("cart")
       .then(dbUser => {
@@ -57,8 +56,8 @@ module.exports = {
   //     .then(dbModel => res.json(dbModel))
   //     .catch(err => res.status(422).json(err));
   // },
-  AddUserOrders: function (req, res) {
-    db.Users.findByIdAndUpdate({ _id: req.params.id }, { $push: { orders: req.body.id } }) //ask about this please
+  AddUserCart: function (req, res) {
+    db.Users.findByIdAndUpdate({ _id: req.params.id }, { $push: { "cart.items": req.body} }) //ask about this please
       //here I am saying that the req.body.id is the id of the product
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -74,7 +73,13 @@ module.exports = {
       //here I am saying that the req.body.id is the id of the product
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
-
+  },
+  RemoveUserCart: function (req, res) {
+    db.Users.findByIdAndUpdate({ _id: req.params.id }, { $pull: { favorites: req.body.id } }) //ask about this please
+      //here I am saying that the req.body.id is the id of the product
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+ 
   // so we want to take the id of the user and push the id of the product into the orders array? 
 }
