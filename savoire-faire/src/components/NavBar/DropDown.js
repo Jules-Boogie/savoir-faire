@@ -10,7 +10,7 @@ function DropDown(){
     return(
 
         <div>
-           {/* {authenticate.loggedIn && ( */}
+           {authenticate.isLoggedIn && (
 <Dropdown>
   <Dropdown.Toggle variant="success" id="dropdown-basic">
     LifeStyle
@@ -30,7 +30,7 @@ function DropDown(){
     
   </Dropdown.Menu>
 </Dropdown>
-          {/* )} */}
+           )} 
 
 
 

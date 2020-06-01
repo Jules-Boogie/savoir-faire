@@ -8,7 +8,7 @@ function SearchForm (props){
 <div className="container">
 <form>
 <div className="form-group">
-<label htmlFor="search">Type in a type of</label>
+<label htmlFor="search"> Search for Wine</label>
     <input
     type="text"
     onChange={props.change}

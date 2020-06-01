@@ -14,6 +14,7 @@ function ItemCard(props) {
         Quantity: 0,
         Description: ""
     })
+    const [item, setItem] = useState([])
 
     const handleModalClose = () => setShowModal(false);
 
@@ -40,7 +41,7 @@ const loadProduct = id => {
 
 const handleInputChange = event => {
 
-    const [name, value] = event.target
+    const {name, value} = event.target
     setProductState({
         [name] : value
     })
@@ -61,12 +62,16 @@ const handleFormSubmit = (event, id) => {
 const showDeleteModalhandler = () => setShowDeleteModal(true);
 const cancelDeleteActionhandler = () => setShowDeleteModal(false);
 
+const loadAllItems =()=>{
+    API.getProducts()
+    .then(res => setItem(res.data))
+    }
 
 
 const confirmDeleteHandler = (id) => {
-    // send delete request to server
+    console.log("clicked")
     API.deleteProduct(id)
-        .then(res => this.renderproducts())
+        .then(res => loadAllItems())
         .catch(err => console.log(err))
     setShowDeleteModal(false)
 
@@ -82,17 +87,17 @@ return (
             {/* it will be great id the image was slides of images */}
             <div className="card-body">
                 <h5 className="card-title">{props.Name} </h5>
-                <p className="card-text">{props.Type} {props.Price} {props.Quantity}</p>
+                <p className="card-text">{props.Type} US${props.Price} {props.Quantity}</p>
                 <>
-                    <a onClick={()=> {loadProduct(props.key); handleModalShow()}} className="btn btn-primary"> Update </a>
+                    <a onClick={()=>{loadProduct(props.id); handleModalShow()}} className="btn btn-primary"> Update </a>
                     <UpdateProduct
                         showModal={showModal}
                         handleModalClose={handleModalClose}
-                        handleFormSubmit={()=>handleFormSubmit(props.key)}
-                        price={productState.price}
-                        name={productState.name}
-                        description={productState.Description}
-                        quantity={productState.Quantity}
+                        handleFormSubmit={()=>handleFormSubmit(props.id)}
+                        price={props.Price}
+                        name={props.Name}
+                        description={props.Description}
+                        quantity={props.Quantity}
                         Changed={handleInputChange}
 
                     />
@@ -101,7 +106,7 @@ return (
                     <button onClick={showDeleteModalhandler} className="btn btn-danger"> Delete </button>
                     <DeleteModal
                         Cancel={cancelDeleteActionhandler}
-                        Delete={()=>confirmDeleteHandler(props.key)}
+                        Delete={()=>confirmDeleteHandler(props.id)}
                         handleModalClose={cancelDeleteActionhandler}
                         showModal={showDeleteModal}
                     />

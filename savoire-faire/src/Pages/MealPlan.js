@@ -34,6 +34,7 @@ class MealPlanPage extends Component {
         const { name, value } = event.target;
 
         this.setState({
+            ...this.state,
             [name]: value
         });
     }

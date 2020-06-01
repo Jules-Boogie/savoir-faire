@@ -49,13 +49,15 @@ class WinePage extends Component{
 
     render(){
         return (
-        <div>
+        <div className="container">
+            
 <SearchForm
 change={this.handleInputChange}
 searchValue={this.state.search}
 clicked={this.handleSearchClick}
 />
 
+        <h4> Wine Ideas for {this.state.search}</h4>
 <WineRender
 productMatches={this.state.productMatches}
 pairedWines={this.state.pairedWine}

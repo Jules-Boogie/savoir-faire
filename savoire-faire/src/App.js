@@ -14,48 +14,89 @@ import AdminPage from "./Pages/AdminPage"
 import AllUsers from "./Pages/AllUser"
 import ProductDetail from "./Pages/ProductDetail"
 import AdminSignIn from "./Pages/AdminSignIn"
-import Authenticate from "./Pages/Authentication"
 import Wine from "./Pages/Wine"
 import WineComparison from "./Pages/WineComparisonPage"
 import MealPlan from "./Pages/MealPlan"
 import AuthenticationContext from "./Utils/Context/authenticationContext"
 import ShoppingCartPage from "./Pages/ShoppingCart"
+import CheckoutPage from "./Pages/Checkout"
+import Footer from "./components/Footer/footer"
+import Signin from "./components/SignUpsignInForm/signin"
+import Signup from "./components/SignUpsignInForm/signup"
+import {Auth} from "./Utils/Auth/Auth"
+import SideDrawer from "./components/SideDrawer/SideDrawer"
+import Backdrop from "./components/BackDrop/Backdrop"
+import UserProfile from "./Pages/UserProfile"
+import FilterPane from "./components/MainDashBoard/FilterPane/filterPane"
+
 // import UpdateProductPage from "./Pages/UpdateProduct"
 
 
 function App() {
 
-  const [loggedIn, setloggedIn] = useState(false)
+  const style = {
+    backgroundImage: "url(" + "https://previews.123rf.com/images/apostrophe/apostrophe1510/apostrophe151000116/47454426-orange-yellow-background-with-vintage-grunge-background-texture-design-old-faded-paper-distressed-wo.jpg" +")",
+    marginTop:"64px"
+  }
+
+  
+  
   const [isAdmin, setisAdmin] = useState(false)
 
-  const adminLogin = useCallback(() => {
-    setisAdmin(true)
-  })
-  const adminLogOut = useCallback(() => {
-    setisAdmin(false)
-  })
+  const { token, login, adminLogin, logout, userId, adtoken } = Auth();
 
 
-  const login = useCallback(() => {
-    setloggedIn(true)
+  // const adminLogin = useCallback(() => {
+  //   setisAdmin(true)
+  // })
+  // const adminLogOut = useCallback(() => {
+  //   setisAdmin(false)
+    
+  // })
 
-  })
+  // const login = useCallback((uid,token) =>{
+  //   setToken(token)
+  //   setUserId(uid)
+    
 
-  const logoff = useCallback(() => {
-    setloggedIn(false)
+  // },[])
 
-  })
+  // const logout = useCallback(() =>{
+  //   setToken(null)
+  //   setUserId(null)
+
+  // },[])
+
+  
+
+
+//  const [sideDrawerActive, setSideDrawer] = useState(false)
+
+//  const sideDrawerhandler = () => {
+//    setSideDrawer(true)
+//  }
+
+//  const backdropHandler =()=>{
+//   setSideDrawer(false)
+//  }
+
+
+//  let backDrop;
+
+//  if(sideDrawerActive){ 
+//    backDrop = <Backdrop click={backdropHandler}/>
+//  }
+
+
+ 
 
   let routes;
 
-  if (loggedIn) {
+  if (token) {
     routes = (
       <Switch>
         <Route exact={true} path="/">
           <Welcome />
-        </Route>
-        <Route exact path="/products">
-          <DashBoard />
         </Route>
         <Route exact path="/users/winepairing">
           <Wine />
@@ -66,19 +107,47 @@ function App() {
         <Route exact path="/users/mealplan">
           <MealPlan />
         </Route>
-        <Route exact={true} path="/products/:id">
-          <ProductDetail />
-        </Route>
-        <Route exact path="/users/:id/products">
+        <Route exact path="/users/profile"> 
+       <UserProfile/>
+       </Route>
+        
+        <Route exact path="/users/wishlist/">
           <Wishlist />
         </Route>
-        <Route exact path="/users/:id/cart">
+        <Route exact path="/users/wishlist/products/:productid">
+          <Wishlist />
+        </Route>
+        <Route exact path="/users/cart">
           <ShoppingCartPage />
+        </Route>
+        <Route exact path="/signin">
+          <Signin />
+        </Route>
+        <Route exact path="/products">
+          <DashBoard />
+        </Route>
+        <Route exact path="/products/accessories">
+          <Accessories />
+        </Route>
+        <Route exact path="/products/shoes">
+          <Shoes />
+        </Route>
+        <Route exact path="/products/beauty">
+          <Beauty />
+          </Route>
+          <Route exact path="/products/skincare">
+            <SkinCare />
+          </Route>
+          <Route exact={true} path="/users/products/:id" >
+            <ProductDetail/>
+            </Route>
+        <Route exact path="/products/clothing">
+          <Clothing />
         </Route>
         <Redirect to="/" />
       </Switch>
     );
-  } else if (isAdmin) {
+  } else if (adtoken) {
     routes = (
       <Switch>
         <Route exact path="/admin/products">
@@ -87,27 +156,29 @@ function App() {
         <Route exact={true} path="/admin/users">
           <AllUsers />
         </Route>
-        <Route exact={true} path="/">
-          <Welcome />
+        <Route exact={true} path="/products/:id">
+          <ProductDetail />
         </Route>
         <Route exact path="/products">
           <DashBoard />
         </Route>
-        <Route exact path="/users/winepairing">
-          <Wine />
+        <Route exact path="/products/accessories">
+          <Accessories />
         </Route>
-        <Route exact path="/users/winecomparison">
-          <WineComparison />
+        <Route exact path="/products/shoes">
+          <Shoes />
         </Route>
-        <Route exact path="/users/mealplan">
-          <MealPlan />
+        <Route exact path="/products/beauty">
+          <Beauty />
+          </Route>
+          <Route exact path="/products/skincare">
+            <SkinCare />
+          </Route>
+          <Route exact={true} path="/users/products/:id" component={ProductDetail} />
+        <Route exact path="/products/clothing">
+          <Clothing />
         </Route>
-        <Route exact={true} path="/products/:id">
-          <ProductDetail />
-        </Route>
-        <Route exact path="users/:id/products">
-          <Wishlist />
-        </Route>
+        
       </Switch>
 
     )
@@ -118,8 +189,12 @@ function App() {
         <Route exact={true} path="/">
           <Welcome />
         </Route>
-        <Route exact path="/authenticate">
-          <Authenticate />
+       
+        <Route exact path="/signin">
+          <Signin />
+        </Route>
+        <Route exact path="/signup">
+          <Signup />
         </Route>
         <Route exact path="/admin/signin">
           <AdminSignIn />
@@ -139,14 +214,17 @@ function App() {
           <Route exact path="/products/skincare">
             <SkinCare />
           </Route>
-       
+          <Route exact={true} path="/users/products/:id" >
+            <ProductDetail/>
+            </Route>
+          {/* <Route exact={true} path="/users/products/:id" component={ProductDetail} /> */}
         <Route exact path="/products/clothing">
           <Clothing />
         </Route>
-        <Route exact path="/admin/products">
+        {/* <Route exact path="/admin/products">
           <AdminPage />
-        </Route>
-        <Route exact={true} path="/admin/users">
+        </Route> */}
+        {/* <Route exact={true} path="/admin/users">
           <AllUsers />
         </Route>
         <Route exact path="/users/winepairing">
@@ -161,79 +239,36 @@ function App() {
         <Route exact path="/users/:id/cart">
           <ShoppingCartPage />
         </Route>
+        <Route exact path="/users/:id/checkout">
+          <CheckoutPage />
+        </Route> */}
       </Switch>
     );
   }
 
 
-  // const defaultContainer = () => {
-  //   return (
-  //     <div>
-  //       <AuthenticationContext.Provider value={{ loggedIn: loggedIn, logIn: login, logOut: logoff, isAdmin: isAdmin, adminLogin: adminLogin }}>
-  //         <NavBar />
-  //         <main >
-
-  //             {/* <Route exact={true} path="/">
-  //               <Welcome />
-  //             </Route>
-  //             <Route exact path="/admin/products">
-  //               <AdminPage />
-  //             </Route>
-  //             <Route exact path="/admin/signin">
-  //               <AdminSignIn />
-  //             </Route>
-  //             <Route exact path="/authenticate">
-  //               <Authenticate />
-  //             </Route>
-  //             <Route exact path="/products">
-  //               <DashBoard />
-  //             </Route>
-  //             <Route exact path="/users/winepairing">
-  //               <Wine />
-  //             </Route>
-  //             <Route exact path="/users/winecomparison">
-  //               <WineComparison />
-  //             </Route>
-  //             <Route exact path="/users/mealplan">
-  //               <MealPlan />
-  //             </Route>
-  //             <Route exact={true} path="/admin/users">
-  //               <AllUsers />
-  //             </Route>
-  //             <Route exact path="/users/:id/cart">
-  //               <ShoppingCartPage />
-  //             </Route>
-  //             <Route exact={true} path="/products/add">
-  //               <AddProductPage />
-  //             </Route>
-
-  //             <Route exact={true} path="/products/:id">
-  //               <ProductDetail />
-  //             </Route>
-
-  //             <Route exact path="users/:userid/products">
-  //               <Wishlist />
-  //             </Route>
-  //             <Redirect to="/" /> */}
-  //           {routes}
-  //         </main>
-  //       </AuthenticationContext.Provider>
-  //     </div>
-  //   )
-  // }
+  
 
   return (
     <Router>
-      <div>
-        <AuthenticationContext.Provider value={{ loggedIn: loggedIn, logIn: login, logOut: logoff, isAdmin: isAdmin, adminLogin: adminLogin }}>
-          <NavBar />
-          <main >
+      <div style={{height:"100%"}}>
+        <AuthenticationContext.Provider value={{  isLoggedIn: !!token,
+        token: token,
+        userId: userId,
+        login: login,
+        logout: logout, isAdmin: !!adtoken, adminLogin: adminLogin }}>
+          <NavBar  />
+          <FilterPane/>
+          {/* <SideDrawer show={SideDrawer}/>
+          {backDrop} */}
+          <main style={style} >
 
 
             {routes}
 
 
           </main>
+         {/* <Footer/> */}
         </AuthenticationContext.Provider>
       </div>
     </Router>

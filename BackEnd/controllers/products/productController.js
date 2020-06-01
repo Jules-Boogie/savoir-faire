@@ -41,10 +41,16 @@ findAllBeauty: function (req,res){
 },
 
 create: function(req, res) {
-  db.Products
-    .create(req.body)
+  
+  const { Name, Care, Image, Description, Size, Price, Color} = req.body;
+  console.log(Image.split(","))
+  const data ={
+    "Name":Name, "Care":Care, "Image":Image.split(","), "Description":Description, "Size":Size, "Price":Price, "Color":Color
+  }
+  console.log(data)
+  db.Products.create(data)
     .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
+    .catch(err => (err.dbModel));
 },
 update: function(req, res) {
     db.Products.findOneAndUpdate({ _id: req.params.id }, req.body)
@@ -77,7 +83,15 @@ findBuyersofOneProduct: function(req, res){
 },
 //find the seller and buyer of a product
 AddComments: function(req,res){
+  console.log(req.params.id + "and" + req.body)
   db.Products.findByIdAndUpdate({_id:req.params.id}, {$push: {Comments:req.body} })
+  .then(dbResult => res.json(dbResult))
+  .catch(error => res.status(422).json(error));
+},
+AddFavorites: function(req,res){
+  console.log(req.params.id)
+    console.log(req.body)
+  db.Products.findByIdAndUpdate({_id:req.params.id}, {$push: {Fans:req.body.userid} })
   .then(dbResult => res.json(dbResult))
   .catch(error => res.status(422).json(error));
 },

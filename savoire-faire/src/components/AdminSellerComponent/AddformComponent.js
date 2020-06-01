@@ -7,6 +7,7 @@ function addItemModal(props) {
     return (
       <Modal
         {...props}
+        
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
@@ -18,10 +19,10 @@ function addItemModal(props) {
         </Modal.Header>
         <Form>
         <Modal.Body>
-         <AddForm />
+         <AddForm {...props} />
         </Modal.Body>
         <Modal.Footer>
-        <Button variant="primary" onClick={props.handleSubmit}>
+        <Button variant="primary" {...props.onClick}>
             Save Changes 
           </Button>
           <Button onClick={props.onHide}>Close</Button>

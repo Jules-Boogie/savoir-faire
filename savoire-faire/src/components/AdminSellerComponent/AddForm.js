@@ -14,43 +14,40 @@ return (
     <Form.Label> Image Url:
         <small> Separate multiple Urls by Comma </small>
     </Form.Label>
-    <Form.Control onChange={props.Changed} value={props.imageUrl} type="email" name="imageUrl" placeholder="name@example.com" />
+    <Form.Control onChange={props.Changed} value={props.imageUrl} type="imageUrl" name="imageUrl" placeholder="name@example.com" />
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlSelect1">
     <Form.Label> Color </Form.Label>
-    <Form.Control onChange={props.Changed} name="color" value={props.color} as="select">
-      <option>Red</option>
-      <option>Yellow</option>
-      <option>Green</option>
-      <option>Purple</option>
-      <option>Pink</option>
+    <Form.Control onChange={props.Changed} name="color"  as="select">
+      <option value="red">Red</option>
+      <option value="yellow">Yellow</option>
+      <option value="green">Green</option>
+      <option value="purple">Purple</option>
+      <option value="pink">Pink</option>
      
     </Form.Control>
   </Form.Group>
   <Form.Group   controlId="exampleForm.ControlSelect1">
     <Form.Label> Quantity </Form.Label>
-    <Form.Control onChange={props.Changed} name="quantity" value={props.quantity} as="select">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-      <option>7</option>
-      <option>8</option>
-      <option>9</option>
-      <option>10</option>
+    <Form.Control onChange={props.Changed} name="quantity"  as="select">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
     </Form.Control>
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlSelect2">
     <Form.Label>Item Type</Form.Label>
-    <Form.Control onChange={props.Changed} name="type" value={props.type} as="select" multiple>
-      <option>Dress</option>
-      <option>Shirt</option>
-      <option>Skirt</option>
-      <option>Pants</option>
-      <option>Shoes</option>
-      <option> Accesories </option>
+    <Form.Control onChange={props.Changed} name="type"  as="select" multiple>
+      <option value="clothing"> Clothing</option>
+      <option value="shoes">Shoes</option>
+      <option value="accessories"> Accesories </option>
       <option> SkinCare </option>
       <option> Beauty </option>
     </Form.Control>
@@ -74,9 +71,9 @@ return (
     </InputGroup.Append>
   </InputGroup>
   </Form.Group>
-  <Form.Group controlId="formBasicRange">
-    <Form.Label> Size: {props.size} <small> Pick Between 4 and 20</small> </Form.Label>
-    <Form.Control min="0" max="20" step="1" name="size" onChange={props.Changed} value={props.size} type="range" />
+  <Form.Group controlId="exampleForm.ControlTextarea1">
+    <Form.Label> Size </Form.Label>
+    <Form.Control onChange={props.Changed} name="size" value={props.size} as="textarea" rows="3" />
   </Form.Group>
 
   </div>

@@ -1,74 +1,117 @@
-import React from 'react';
-import { useForm } from 'react-hook-form'
+import React, { useState, useContext } from 'react';
+
 import { Form, Card, Button } from 'react-bootstrap'
 import { Row, Col, Grid } from 'react-bootstrap';
+import API from "../../Utils/API/Users/API_Users"
+import AuthenticationContext from "../../Utils/Context/authenticationContext"
 
-function SignUpForm() {
+const style= {
+  margin:0
+} 
 
-  const {inputState, inputHandler} = useForm ({
-    email:{
-      input:""
-    },
-    password:{
-      input:""
-    }, 
-    firstname:{
-      input:""
-    },
-    lastname:{
-      input:""
-    }
-
-
-  }, false)
+function SignUpForm () {
+  const authenticate = useContext(AuthenticationContext)
+  const [user, setUser] = useState({})
+const[formdata, setFormdata] = useState({
+  firstname:"",
+  lastname:"",
+  password:"",
+  email:""
+})
   
-  const signupSubmithandler = ()=>{
-    console.log(inputState)
+
+  const signupSubmithandler = (event) => {
+    event.preventDefault()
+    console.log(formdata.firstname)
+   
+    // const hashedpassword = Bcryptjs.hash(inputState.password, 10)
+    API.addUser({
+      firstName: formdata.firstname,
+      password: formdata.password,
+      lastName: formdata.lastname,
+      email: formdata.email
+    })
+    .then(res => { 
+      authenticate.login(res.data.userId, res.data.token)
+    }
+    )
+
+
+    // const signupToken = Webtoken.sign({email: inputState.email}, 'test')
+    // .then(res.json({email: inputState.email, token:signupToken}))
   }
 
+
+  const handleInputChange = event => {
+    
+    const {name, value} = event.target
+
+
+    // Updating the input's state
+    setFormdata({
+      ...formdata,
+      [name]: value
+    });
+  };
+
   return (
-    <div>
-      <Card>
-      <h3> Sign Up Below</h3>
-      <Form>
-        <Form.Row>
-          <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label> First Name</Form.Label>
-            <Form.Control type="firstname" placeholder="First Name" />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label> Last Name </Form.Label>
-            <Form.Control type="lastname"
-            onInput={inputHandler}
-             placeholder="Last Name" />
-          </Form.Group>
-        </Form.Row>
-        <Form.Row>
-          <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" 
-            placeholder="Enter email"
-            onInput={inputHandler}
-             />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password"
-            onInput={inputHandler} 
-            placeholder="Password" />
-          </Form.Group>
-        </Form.Row>
-
+    
+      <div style={style} className="container"> 
         
+        <Form >
+           
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label> First Name</Form.Label>
+              <Form.Control  value={formdata.firstname}
+            name="firstname"
+            onChange={handleInputChange}
+            type="text"
+            placeholder="First Name"
+               />
+            </Form.Group>
 
-        <Button variant="primary" onSubmit={signupSubmithandler}type="submit">
-          Submit
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label> Last Name </Form.Label>
+              <Form.Control value={formdata.lastname}
+            name="lastname"
+            onChange={handleInputChange}
+            type="text"
+            placeholder="last Name"
+                />
+            </Form.Group>
+          </Form.Row>
+          <Form.Row>
+            <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Label>Email</Form.Label>
+              <Form.Control  value={formdata.email}
+            name="email"
+            onChange={handleInputChange}
+            type="text"
+            placeholder="email (required)"
+              />
+            </Form.Group>
+
+            <Form.Group as={Col} controlId="formGridPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control  value={formdata.password}
+            name="password"
+            onChange={handleInputChange}
+            type="password"
+            placeholder="Password (required)"
+                 />
+            </Form.Group>
+          </Form.Row>
+
+
+
+          <Button  disabled={!(formdata.email && formdata.password)}
+                onClick={() => {}}variant="primary" onClick={signupSubmithandler} type="submit">
+            Submit
   </Button>
-      </Form>
-      </Card>
-    </div>
+        </Form>
+     
+        </div>
 
   )
 }

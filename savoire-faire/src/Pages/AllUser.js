@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Appuser from "../components/UsersInfoforAdmin/Users"
 import Wrapper from "../Hoc/wrapper"
 import wrapper from '../Hoc/wrapper';
-function userPage (){
+import API from "../Utils/API/Users/API_Users"
+function UserPage (){
 
-// grab userdata from server. 
+    // const [userSeed, setUserSeed] = useState([])
+
+    // const loadUsers=()=>{
+    //     API.getUsers()
+    //     .then(res => setUserSeed(res.data))
+    // }
+
+    // useEffect(() => {
+    //     loadUsers()
+    // },[])
+
+
+
 const userSeed = [
     {
     name: "Juliet George", 
@@ -40,4 +53,4 @@ return (
 }
 
 
-export default userPage;
+export default UserPage;

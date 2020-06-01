@@ -1,57 +1,92 @@
 import { useForm } from "react-hook-form";
 import { Form, Button, Jumbotron, Card } from 'react-bootstrap'
-import React, { useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import AuthenticationContext from "../Utils/Context/authenticationContext"
+import API from "../Utils/API/Users/API_Users";
 
 function AdminsignIn() {
 
   const authenticate = useContext(AuthenticationContext)
 
-  const { inputState, inputHandler } = useForm({
-    email: {
-      input: ""
-    },
-    password: {
-      input: ""
-    }
-  }, false)
+  const [user, setUser] = useState({})
+  const [formdata, setFormdata] = useState({
+    password: "",
+    email: ""
+  })
 
-  const adminSubmithandler = () => {
+  const handleInputChange = event => {
+    
+    const {name, value} = event.target
+
+
+    // Updating the input's state
+    setFormdata({
+      ...formdata,
+      [name]: value
+    });
+  };
+  
+
+  const adminSubmithandler = (event) => {
+    event.preventDefault()
     console.log("clicked")
-    authenticate.adminLogin()
+   
+
+    API.LoginAdmin({
+      email: formdata.email,
+      password:formdata.password
+    })
+    .then(res => {setUser(res.data) 
+      console.log(res.data)
+       authenticate.adminLogin(res.data.userID, res.data.token)
+    })
+     .catch(err => console.log(err))
   }
 
 
   return (
 
-    <div className="container">
-      <Card>
-        <Card.Title> Sign In as An Administrator</Card.Title>
+    <div className="row container">
+    <div className="col"></div>
+    
+    
+    <div className="col">
 
-        <Form>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email"
-              onInput={inputHandler}
-              errortext="please enter valid email"
-              placeholder="Enter email" />
-          </Form.Group>
+      <h3> Sign In as An Administrator </h3>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-          <Button onClick={adminSubmithandler} variant="primary" type="submit">
-            Submit
-  </Button>
+      <Form>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control value={formdata.email}
+            name="email"
+            onChange={handleInputChange}
+            type="text"
+            placeholder="email (required)"
+          />
           <Form.Text className="text-muted">
-            Not a site Administrator? Go to user sign in <a href="/authenticate"> here!</a>
+            Dont have an account?
+      <a href="/signup"> sign up instead </a>
           </Form.Text>
-        </Form>
-        </Card>
-</div>
+        </Form.Group>
 
-        
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            value={formdata.password}
+            name="password"
+            onChange={handleInputChange}
+            type="password"
+            placeholder="Password (required)"
+          />
+
+        </Form.Group>
+        <Button variant="primary" disabled={!(formdata.email && formdata.password)} onClick={adminSubmithandler} type="submit">
+          Login
+    </Button>
+      </Form>
+    </div>
+    <div className="col"></div>
+        </div >
     )
 }
 

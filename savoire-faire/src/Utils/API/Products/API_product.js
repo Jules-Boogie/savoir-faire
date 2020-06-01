@@ -5,6 +5,15 @@ export default {
   getProducts: function() {
     return axios.get("/api/users/products");
   },
+  getShoes: function() {
+    return axios.get("/api/users/products/shoes");
+  },
+  getAccessories: function() {
+    return axios.get("/api/users/products/accessories");
+  },
+  getClothing: function() {
+    return axios.get("/api/users/products/clothing");
+  },
   // Gets the product with the given id
   getProduct: function(id) {
     return axios.get("/api/users/products/" + id);
@@ -18,7 +27,10 @@ export default {
   },
   // Save a product to the database
   saveProduct: function(prodData) {
-    return axios.post("/api/users/products", prodData);
+    return axios.post("/api/users/products/create", prodData);
+  },
+  saveProductFans: function(id, itemData) {
+    return axios.post("/api/users/products/" + id + "/fans", itemData);
   },
   saveProductComment: function(id, commentData) {
     return axios.post("/api/users/products/" + id + "/comments", commentData);

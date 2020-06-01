@@ -2,34 +2,40 @@ import React from 'react'
 import { Card, Col, Row, ListGroup, ListGroupItem, Button } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 
+const style={
+  fontFamily:" 'Roboto', sans-serif"
+}
+
 function wineRender(props) {
+
+  
 
   return (
     <div>
       <Row>
         <Col >
-          <p> List of Wines for can be paired with {props.searchValue} </p>
+         
           <ListGroup>
             {props.pairedWines.map(wine => (
               <ListGroup.Item> {wine} </ListGroup.Item>
             ))}
 
           </ListGroup>
-          <p>
+          <p className="container" style={style}>
             {props.pairingText}
           </p>
 
 
         </Col>
         <Col >
-          <h4> Wine Details</h4>
+          
           {props.productMatches.map(product => (
           
               <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={product.imageUrl} />
                 <Card.Body>
                   <Card.Title>{product.title}</Card.Title>
-                  <Card.Text>
+                  <Card.Text style={style}>
                     {product.description}
                   </Card.Text>
                 </Card.Body>
@@ -39,8 +45,8 @@ function wineRender(props) {
                   <ListGroupItem>{product.score}</ListGroupItem>
                 </ListGroup>
                 <Card.Body>
-                  <Card.Link href={product.link}> More Details </Card.Link>
-                  <Button onClick={props.Clicked}> </Button>
+                  <Card.Link href={product.link} target="_blank" > More Details </Card.Link>
+                
                 </Card.Body>
               </Card>
             

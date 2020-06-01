@@ -12,7 +12,9 @@ return (
 <Container>
     
 <Row>
-monday
+<h4 className="text-center"> Monday </h4>
+<div className="container card h-100">
+  <div className="row">
   {props.Monday.map(meal => (
     <CardGroup>
     <BreakFastCard 
@@ -21,20 +23,21 @@ monday
     imageType={meal.imageType}
     cooktime={meal.readyInMinutes}
     serving={meal.servings}
-    sourceURL={meal.sourceURL}
+    sourceURL={meal.sourceUrl}
     
     />
   </CardGroup>
   ))}
-  <div>
-      
+
+   <ul> 
   <h4> Nutrition</h4>
   <p> Calories:{props.calories} </p>
   <p> Protein: {props.protein} </p>
   <p> Fat: {props.fat} </p>
   <p> Carbohydrates: {props.carbohydrates} </p>
-</div>
-
+  </ul>
+  </div>
+  </div>
 
 
 
@@ -43,7 +46,9 @@ monday
 
 <Row>
 
-tuesday
+<h4>Tuesday </h4>
+<div className="container card h-100">
+  <div className="row">
 {props.Tuesday.map(meal => (
     <CardGroup>
     <BreakFastCard 
@@ -52,7 +57,7 @@ tuesday
     imageType={meal.imageType}
     cooktime={meal.readyInMinutes}
     serving={meal.servings}
-    sourceURL={meal.sourceURL}
+    sourceURL={meal.sourceUrl}
     
     
     />
@@ -61,19 +66,23 @@ tuesday
 
 
 ))}
-<div>
+<ul>
 <h4> Nutrition</h4>
   <p> Calories:{props.tcalories} </p>
   <p> Protein: {props.tprotein} </p>
   <p> Fat: {props.tfat} </p>
   <p> Carbohydrates: {props.tcarbohydrates} </p>
+  </ul>
+  </div>
   </div>
 
 </Row>
 
 <Row>
 
-wednesday
+<h4 className="text-center"> Wednesday </h4>
+<div className="container card h-100">
+  <div className="row">
 {props.Wednesday.map(meal => (
     <CardGroup>
     <BreakFastCard 
@@ -82,7 +91,7 @@ wednesday
     imageType={meal.imageType}
     cooktime={meal.readyInMinutes}
     serving={meal.servings}
-    sourceURL={meal.sourceURL}
+    sourceURL={meal.sourceUrl}
     
     
     />
@@ -91,12 +100,14 @@ wednesday
 
 
 ))}
-<div>
+<ul>
  <h4> Nutrition</h4>
   <p> Calories:{props.wcalories} </p>
   <p> Protein: {props.wprotein} </p>
   <p> Fat: {props.wfat} </p>
   <p> Carbohydrates: {props.wcarbohydrates} </p>
+  </ul>
+  </div>
   </div>
 </Row>
 
@@ -104,7 +115,9 @@ wednesday
 
 <Row>
 
-thursday
+<h4 className="text-center"> Thursday </h4>
+<div className="container card h-100">
+  <div className="row">
 {props.Thursday.map(meal => (
     <CardGroup>
     <BreakFastCard 
@@ -113,7 +126,7 @@ thursday
     imageType={meal.imageType}
     cooktime={meal.readyInMinutes}
     serving={meal.servings}
-    sourceURL={meal.sourceURL}
+    sourceURL={meal.sourceUrl}
     
     
     />
@@ -122,18 +135,21 @@ thursday
 
 
 ))}
-<div>
+<ul>
  <h4> Nutrition</h4>
   <p> Calories:{props.thcalories} </p>
   <p> Protein: {props.thprotein} </p>
   <p> Fat: {props.thfat} </p>
   <p> Carbohydrates: {props.thcarbohydrates} </p>
+  </ul>
+  </div>
   </div>
 </Row>
 
 <Row>
-
-    Friday
+<h4 className="text-center"> Friday </h4>
+<div className="container card h-100">
+  <div className="row">
     {props.Friday.map(meal => (
     <CardGroup>
     <BreakFastCard 
@@ -142,7 +158,7 @@ thursday
     imageType={meal.imageType}
     cooktime={meal.readyInMinutes}
     serving={meal.servings}
-    sourceURL={meal.sourceURL}
+    sourceURL={meal.sourceUrl}
     
     
     />
@@ -151,19 +167,21 @@ thursday
 
 
 ))}
-<div>
+<ul>
 <h4> Nutrition</h4>
   <p> Calories:{props.fcalories} </p>
   <p> Protein: {props.fprotein} </p>
   <p> Fat: {props.ffat} </p>
   <p> Carbohydrates: {props.fcarbohydrates} </p>
-
-
+  </ul>
+  </div>
 </div>
 </Row>
 <Row>
 
-    Saturday
+<h4 className="text-center"> Saturday </h4>
+<div className="container card h-100">
+  <div className="row">
     {props.Saturday.map(meal => (
     <CardGroup>
     <BreakFastCard 
@@ -172,7 +190,7 @@ thursday
     imageType={meal.imageType}
     cooktime={meal.readyInMinutes}
     serving={meal.servings}
-    sourceURL={meal.sourceURL}
+    sourceURL={meal.sourceUrl}
     
     
     />
@@ -181,18 +199,22 @@ thursday
 
 
 ))}
-<div>
+<ul>
  <h4> Nutrition</h4>
   <p> Calories:{props.scalories} </p>
   <p> Protein: {props.sprotein} </p>
   <p> Fat: {props.sfat} </p>
   <p> Carbohydrates: {props.scarbohydrates} </p>
+  </ul>
+  </div>
   </div>
 </Row>
 
 <Row>
 
-    Sunday
+<h4 className="text-center"> Sunday </h4>
+<div className="container card h-100">
+  <div className="row">
     {props.Sunday.map(meal => (
     <CardGroup>
     <BreakFastCard 
@@ -201,7 +223,7 @@ thursday
     imageType={meal.imageType}
     cooktime={meal.readyInMinutes}
     serving={meal.servings}
-    sourceURL={meal.sourceURL}
+    sourceURL={meal.sourceUrl}
     
     
     />
@@ -210,12 +232,14 @@ thursday
 
 
 ))}
-<div>
+<ul>
  <h4> Nutrition</h4>
   <p> Calories:{props.sscalories} </p>
   <p> Protein: {props.ssprotein} </p>
   <p> Fat: {props.ssfat} </p>
   <p> Carbohydrates: {props.sscarbohydrates} </p>
+  </ul>
+  </div>
   </div>
 </Row> 
 

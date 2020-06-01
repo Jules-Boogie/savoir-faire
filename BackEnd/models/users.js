@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -6,12 +7,19 @@ const userSchema = new Schema({
     lastName: { type: String, required: true },
     email:{type: String, required: true, index: { unique: true }},
     userPhoto:{type: String},
-    password: { type: String, required:true},
-    role:{type: String, required:true},
-    favorites:[[{ type: Schema.Types.ObjectId, ref: 'Product' }]],
+    Date:{
+      type: Date,
+      default: Date.now
+    },
+    role:{type:String},
+    about:{type:String},
+    Location:{type:String},
+    password: { type: String, required:true, minlength:6},
+   
+    favorites:[{ type: Schema.Types.ObjectId, ref: 'Product' }],
     cart:{items: [
       {
-      item: { type: Schema.Types.ObjectId, required: true, ref: 'Product' },
+      itemId: { type: Schema.Types.ObjectId, required: true, ref: 'Product' },
       quantity: { type: Number, required: true },
       price: { type: Number, required: true }
   }]}

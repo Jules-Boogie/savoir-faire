@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import ItemList from '../components/MainDashBoard/ItemForDashBoard/ItemList'
+import SortPage from "../components/MainDashBoard/FilterPane/filterPane"
 
 
 
@@ -45,8 +46,12 @@ const item = [{
     return (
     
        
-    <ItemList items={item}/>
-    
+        <div>
+        <SortPage/>
+   <ItemList items={item}/>
+   
+   
+   </div>  
     
     
     

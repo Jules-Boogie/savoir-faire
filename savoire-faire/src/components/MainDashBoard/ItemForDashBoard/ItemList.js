@@ -12,20 +12,23 @@ function itemList(props){
                 
                     <div className="jumbotron text-center jumbotron-fluid">
                         <div className="container">
-                            <h1 className="display-4"> Shop All Women's </h1>
-                            <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                            <h1 className="display-4"> Shop All {props.title} </h1>
+                            <p className="lead"> Use the Sort Tool Above to Narrow Items by Price, Popularity, and Added Date </p>
                         </div>
                     </div>
 
-               <CardGroup>
+               <CardGroup  love={props.like} className="container">
                     {props.items.map(item => (
                         <ItemCard
-                            key={item.id}
-                            Name={item.name}
-                            Price={item.price}
-                            Image={item.image}
-                            Type={item.type}
-                            Date={item.date}
+                        id={item._id}
+                            key={item._id}
+                            Name={item.Name}
+                            Price={item.Price}
+                            Image={item.Image}
+                            Type={item.itemType}
+                            Date={item.Date}
+                            Fan={item.Fans.length}
+
                         />
 
                     ))}

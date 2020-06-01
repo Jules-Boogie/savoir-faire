@@ -28,7 +28,7 @@ function updateProduct(props) {
               <InputGroup className="mb-3">
                 <FormControl
                   onChange={props.Changed} value={props.description}
-                  placeholder="Product name"
+                  placeholder={props.description}
                   aria-label="Recipient's username"
                   aria-describedby="basic-addon2"
                 />

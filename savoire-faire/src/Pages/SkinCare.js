@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ItemList from '../components/MainDashBoard/ItemForDashBoard/ItemList'
-
+import SortPage from "../components/MainDashBoard/FilterPane/sortDropDown"
 
 
 function skinCarePage() {
@@ -44,11 +44,12 @@ const item = [{
     
     return (
     
-       
-    <ItemList items={item}/>
-    
-    
-    
+        <div>
+        <SortPage/>
+   <ItemList items={item}/>
+   
+   
+   </div>  
     
     )
     

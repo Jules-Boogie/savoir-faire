@@ -2,20 +2,24 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
-    Name: { type: String, required: true },
+    Name: { type: String },
     Description: { type: String},
-    Price: { type: Number, required:true},
-    Size:[{type: Number, required:true}],
-    Color:{type: String, required: true},
+    Price: { type: Number},
+    Size:{type: [String]},
+    Color:{type: String},
     Image:{type: [String]},
-    Quantity: { type: Number, required:true},
-    itemType: {type: String, required: true },
-    Care:{type: String, required: true},
-    Fans:[{type: Schema.Types.ObjectId, required:true, ref: 'User'}],
-    Buyer:[{type: Schema.Types.ObjectId, required:true, ref: 'User'}],
-    Orders:{type: Number, required:true},
+    Quantity: { type: Number},
+    itemType: {type: String },
+    Care:{type: String},
+    Fans:[{type: Schema.Types.ObjectId, ref: 'User'}],
+    Buyer:[{type: Schema.Types.ObjectId, ref: 'User'}],
+    Orders:{type: Number},
     Comments:{type:[String]},
-    Date: new Date(Date.now())
+    Date:{
+      type: Date,
+      default: Date.now
+    },
+   
   });
   
   const Product  = mongoose.model("Product", productSchema);

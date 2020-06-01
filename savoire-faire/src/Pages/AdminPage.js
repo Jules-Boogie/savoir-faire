@@ -1,43 +1,29 @@
-import React from 'react';
+import React, { useState, Component, useEffect } from 'react';
 import ItemList from "../components/AdminSellerComponent/Item"
 import AddItemBtn from "../components/AdminSellerComponent/AdditemBTN"
+import API from "../Utils/API/Products/API_product"
 
 
 
 
 
-function adminPage() {
+function AdminPage() {
 
-// define states 
+  const [item, setItem] = useState([])
 
-// define methods 
+  // define states 
+  
+  // define methods 
+  useEffect(()=>{
+      loadAllItems()
 
-const item = [{
-id:"c2",
-name:"Pleated floral dress",
-price:"US$35.99",
-image:"https://st.mngbcn.com/rcs/pics/static/T4/fotos/S20/41087034_85.jpg?ts=1551278025957&imwidth=100&imdensity=1",
-type:"Dress",
-date:"May 5th"
-
-},
-{
-id:"c3",
-name:"Vichy check dress",
-price:"US$22.99",
-image:"https://st.mngbcn.com/rcs/pics/static/T4/fotos/S20/43037717_43_D6.jpg?ts=1553794677981&imwidth=100&imdensity=1",
-type:"Dress",
-date:"May 6th"
-},{
-id:"c4",
-name:"Printed long dress",
-price:"US$12.99",
-image:"https://st.mngbcn.com/rcs/pics/static/T4/fotos/S20/41077802_15.jpg?ts=1553778807631&imwidth=100&imdensity=1",
-type:"Dress",
-date:"May 13th"
+  },[])
 
 
-}]
+  const loadAllItems =()=>{
+  API.getProducts()
+  .then(res => setItem(res.data))
+  }
 
 
 
@@ -45,7 +31,7 @@ date:"May 13th"
 return (
 
   <div>
-<AddItemBtn/>
+<AddItemBtn />
    
 <ItemList items={item}/>
 
@@ -61,4 +47,4 @@ return (
 
 
 
-export default adminPage;
+export default AdminPage;

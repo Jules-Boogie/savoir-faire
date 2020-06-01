@@ -13,11 +13,11 @@ class WineComparisonPage extends Component {
     // declare state
     state = {
         recommendedWine: [],
-        search: ""
+        search: "malbec"
     }
 
     componentDidMount() {
-        this.getWine("malbec");
+        this.getWine("");
 
     }
 
@@ -53,7 +53,8 @@ class WineComparisonPage extends Component {
 
 
     }
-    handleSubmitBtn = () => {
+    handleSubmitBtn = (event) => {
+        event.preventDefault()
        this.getWine(this.state.search)
     }
 

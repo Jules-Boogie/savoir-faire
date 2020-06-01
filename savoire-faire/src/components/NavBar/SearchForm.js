@@ -5,8 +5,7 @@ function searchForm(props) {
     return (
         <div className="form-inline mx-auto float-right">
             <form className="form-inline">
-                <input className="form-control mr-sm-2" type="search" placeholder="Search" {...props} aria-label="Search" />
-                <button onClick={props.clicked}className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input onChange={props.changed} className="form-control mr-sm-2" type="search" placeholder="Search" value={props.value} aria-label="Search" />
             </form>
 
         </div>

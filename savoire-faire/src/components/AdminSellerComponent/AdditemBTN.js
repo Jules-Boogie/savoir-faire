@@ -17,35 +17,40 @@ function AddButton(){
       description:"",
       care:"",
       price:0,
-      size:[0]
+      size:["4","6","7","8"]
     })
     
 
     const handleInputChange = event => {
 
-      const [name, value] = event.target
+      const {name, value} = event.target
       setProductState({
+        ...productState,
           [name] : value
       })
-      
+      console.log(productState)
   }
    const handleSubmitBtn = event => {
      event.preventDefault()
+    
+
      API.saveProduct({
-      Size:productState.size,
-      Price:productState.price,
+      Size:(productState.size),
+      Price:parseInt(productState.price),
       Description:productState.description,
       Care:productState.care,
-      Type:productState.type,
-      Quantity:productState.quantity,
+      itemType:productState.type,
+      Quantity:parseInt(productState.quantity),
       Color:productState.color,
-      Image:productState.imageUrl,
-      Name:productState.name
+      Image:  productState.imageUrl ,
+      Name:productState.name,
+      Date: new Date()
      })
      
    }
 
-
+  //  "https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/53071046_28.jpg?ts=1562301209637&imwidth=100&imdensity=1,https://st.mngbcn.com/rcs/pics/static/T5/fotos/outfit/S20/53071046_28-99999999_01.jpg?ts=1562301209637&imwidth=100&imdensity=1, https://st.mngbcn.com/rcs/pics/static/T5/fotos/S20/53071046_28_D3.jpg?ts=1562301209637&imwidth=100&imdensity=1"
+  // "130,235,342,124"
   return (
     <>
       <Button variant="primary" onClick={() => setModalShow(true)}>
@@ -60,12 +65,12 @@ function AddButton(){
         description={productState.description}
         care={productState.care}
         type={productState.type}
-        quantity={productState.quantity}
-        color={productState.color}
+        // quantity={productState.quantity}
+        // color={productState.color}
         imageUrl={productState.imageUrl}
         name={productState.name}
-        Changed={handleInputChange}
-        handleSubmit={handleSubmitBtn}
+        onChange={handleInputChange}
+        onClick={handleSubmitBtn}
       />
     </>
   );

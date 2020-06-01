@@ -1,12 +1,13 @@
 import React from 'react'
 
 const AuthenticationContext = React.createContext({
-    loggedIn: false,
+    isLoggedIn: false,
+    userId: null,
+    token: null,
+    login: () => {},
+    logout: () => {},
     isAdmin:false,
-    logIn: () => {},
-    adminLogin: () => {},
-    adminlogOut: () => {},
-    logOut: () => {}
+    adminLogin: () => {}
 })
 
 export default AuthenticationContext;

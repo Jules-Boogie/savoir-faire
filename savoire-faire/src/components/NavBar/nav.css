@@ -1,0 +1,14 @@
+
+
+@media (max-width : 768px){
+    .navlink{
+        display:none
+    }
+}
+
+
+@media (min-width : 768px){
+    .sidedrawer{
+        display:none
+    }
+}
