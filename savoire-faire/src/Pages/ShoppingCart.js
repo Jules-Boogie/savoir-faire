@@ -54,9 +54,7 @@ function ShoppingCartPage() {
 
          <AuthenticateContext.Consumer>
             {(context) =>
-               
-                  
-              
+
                <div>
                   <h4 className="display-5 danger container text-center"> Shopping Cart </h4>
                   <div className="container text-center">

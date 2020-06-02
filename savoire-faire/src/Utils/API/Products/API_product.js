@@ -23,7 +23,7 @@ export default {
     return axios.delete("/api/users/products/" + id);
   },
   updateProduct: function(id, prodData){
-    return axios.put("/api/users/products" + id, prodData)
+    return axios.put("/api/users/products/" + id, prodData)
   },
   // Save a product to the database
   saveProduct: function(prodData) {

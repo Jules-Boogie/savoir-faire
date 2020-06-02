@@ -20,7 +20,7 @@ function updateProduct(props) {
                 <InputGroup.Prepend>
                   <InputGroup.Text>$ </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl onChange={props.Changed} value={props.price} aria-label="Amount (to the nearest dollar)" />
+                <FormControl onChange={props.Changed} placeholder={props.price} value={props.price} aria-label="Amount (to the nearest dollar)" />
                 <InputGroup.Append>
                   <InputGroup.Text>.00</InputGroup.Text>
                 </InputGroup.Append>

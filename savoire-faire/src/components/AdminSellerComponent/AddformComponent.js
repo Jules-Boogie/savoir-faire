@@ -19,7 +19,7 @@ function addItemModal(props) {
         </Modal.Header>
         <Form>
         <Modal.Body>
-         <AddForm {...props} />
+         <AddForm  />
         </Modal.Body>
         <Modal.Footer>
         <Button variant="primary" {...props.onClick}>

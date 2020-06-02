@@ -122,6 +122,7 @@ function ClothingPage() {
         <div>
             <SortPage
                 change={handleChange}
+                value={value}
             // lowest={handlelowest}
             // highest={handlehighest}
             />

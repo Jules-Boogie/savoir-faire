@@ -43,6 +43,7 @@ const handleInputChange = event => {
 
     const {name, value} = event.target
     setProductState({
+        ...productState,
         [name] : value
     })
     
@@ -50,13 +51,15 @@ const handleInputChange = event => {
 const handleFormSubmit = (event, id) => {
     //find item by id and show/update the state of the item
     // send put request to server with the new added value
-    event.preventDefault();
+   
     API.updateProduct(id, {
         Name:productState.name,
         Description:productState.Description,
         Price: productState.price,
         Quantity:productState.Quantity  
     })
+
+    setShowModal(false)
 }
 
 const showDeleteModalhandler = () => setShowDeleteModal(true);

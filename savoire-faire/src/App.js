@@ -41,51 +41,11 @@ function App() {
 
   
   
-  const [isAdmin, setisAdmin] = useState(false)
+ 
 
   const { token, login, adminLogin, logout, userId, adtoken } = Auth();
 
 
-  // const adminLogin = useCallback(() => {
-  //   setisAdmin(true)
-  // })
-  // const adminLogOut = useCallback(() => {
-  //   setisAdmin(false)
-    
-  // })
-
-  // const login = useCallback((uid,token) =>{
-  //   setToken(token)
-  //   setUserId(uid)
-    
-
-  // },[])
-
-  // const logout = useCallback(() =>{
-  //   setToken(null)
-  //   setUserId(null)
-
-  // },[])
-
-  
-
-
-//  const [sideDrawerActive, setSideDrawer] = useState(false)
-
-//  const sideDrawerhandler = () => {
-//    setSideDrawer(true)
-//  }
-
-//  const backdropHandler =()=>{
-//   setSideDrawer(false)
-//  }
-
-
-//  let backDrop;
-
-//  if(sideDrawerActive){ 
-//    backDrop = <Backdrop click={backdropHandler}/>
-//  }
 
 
  
@@ -110,7 +70,6 @@ function App() {
         <Route exact path="/users/profile"> 
        <UserProfile/>
        </Route>
-        
         <Route exact path="/users/wishlist/">
           <Wishlist />
         </Route>
@@ -132,12 +91,6 @@ function App() {
         <Route exact path="/products/shoes">
           <Shoes />
         </Route>
-        <Route exact path="/products/beauty">
-          <Beauty />
-          </Route>
-          <Route exact path="/products/skincare">
-            <SkinCare />
-          </Route>
           <Route exact={true} path="/users/products/:id" >
             <ProductDetail/>
             </Route>
@@ -168,6 +121,9 @@ function App() {
         <Route exact path="/products/shoes">
           <Shoes />
         </Route>
+        <Route exact path="/products/clothing">
+          <Clothing />
+          </Route>
         <Route exact path="/products/beauty">
           <Beauty />
           </Route>
@@ -259,8 +215,7 @@ function App() {
         logout: logout, isAdmin: !!adtoken, adminLogin: adminLogin }}>
           <NavBar  />
           <FilterPane/>
-          {/* <SideDrawer show={SideDrawer}/>
-          {backDrop} */}
+         
           <main style={style} >
 
 

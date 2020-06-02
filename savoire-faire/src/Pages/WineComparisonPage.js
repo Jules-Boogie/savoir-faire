@@ -5,6 +5,9 @@ import API from "../Utils/External/API_external"
 import SearchForm from "../components/Lifestyle/WineComparison/Search"
 import Table from "../components/Lifestyle/WineComparison/Table"
 
+const style={
+    fontFamily: "'Chelsea Market', cursive"
+  }
 
 class WineComparisonPage extends Component {
 
@@ -98,7 +101,7 @@ class WineComparisonPage extends Component {
     render() {
 
         return (
-        <div>
+        <div style={style}>
                <h1 className="display-4 text-center"> Wine Recommendation </h1>
                 < SearchForm
                     Value={this.state.search}

@@ -2,12 +2,17 @@ import React from 'react'
 import { Form, Container, InputGroup, Button, FormControl} from "react-bootstrap"
 
 
+
+const style={
+  fontFamily: "'Chelsea Market', cursive"
+}
+
 function mealSearchForm(props){
 
     return(
 <div>
     <Container>
-<Form >
+<Form style={style}>
   <Form.Group  controlId="formBasicRange">
     <Form.Label > Calories </Form.Label>
     <Form.Control name="calories"value={props.rangeValue} onChange={props.handleChange} min="1700" max="3000" type="range" />

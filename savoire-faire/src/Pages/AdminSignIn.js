@@ -38,7 +38,7 @@ function AdminsignIn() {
     })
     .then(res => {setUser(res.data) 
       console.log(res.data)
-       authenticate.adminLogin(res.data.userID, res.data.token)
+       authenticate.adminLogin(res.data.adminId, res.data.token)
     })
      .catch(err => console.log(err))
   }

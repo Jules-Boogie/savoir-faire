@@ -6,6 +6,7 @@ function addForm(props){
 
 return (
   <div>
+    
   <Form.Group controlId="exampleForm.ControlInput1">
     <Form.Label>Product Name:</Form.Label>
     <Form.Control onChange={props.Changed} value={props.name} type="name" name="name" placeholder="name@example.com" />
@@ -75,6 +76,7 @@ return (
     <Form.Label> Size </Form.Label>
     <Form.Control onChange={props.Changed} name="size" value={props.size} as="textarea" rows="3" />
   </Form.Group>
+  
 
   </div>
 )

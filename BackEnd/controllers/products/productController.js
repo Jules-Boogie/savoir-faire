@@ -69,6 +69,8 @@ findOne: function(req, res){
     .catch(error => res.status(422).json(error));
 },
 remove: function(req, res) {
+  console.log(req.body)
+  console.log(req.params.id)
     db.Products.findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))

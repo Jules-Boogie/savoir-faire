@@ -9,9 +9,9 @@ function breakfastCard(props){
 
     <div>    
    
-        <Card>
+        <Card style={{ width: "18rem" }}>
   <Card.Header as="h5"> Meal </Card.Header>
-    <Card.Img variant="top" src={`https://spoonacular.com/recipeImages/ ${props.imageID}-90x90.${props.imageType} `} />
+    <Card.Img variant="top" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/2-chef-susan-jenkins.jpg" />
     <Card.Body>
       <Card.Title>{props.title}</Card.Title>
       <Card.Text>

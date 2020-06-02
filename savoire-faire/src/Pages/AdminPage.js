@@ -17,7 +17,7 @@ function AdminPage() {
   useEffect(()=>{
       loadAllItems()
 
-  },[])
+  })
 
 
   const loadAllItems =()=>{

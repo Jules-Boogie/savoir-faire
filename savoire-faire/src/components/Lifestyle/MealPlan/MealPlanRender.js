@@ -6,10 +6,13 @@ import BreakFastCard from './BreakfastCard'
 import LunchCard from "./LunchCard"
 import DinnerCard from "./DinnerCard"
 
+const style={
+  fontFamily: "'Chelsea Market', cursive"
+}
 
 function mealPlanRender(props){
 return (
-<Container>
+<Container style={style}>
     
 <Row>
 <h4 className="text-center"> Monday </h4>

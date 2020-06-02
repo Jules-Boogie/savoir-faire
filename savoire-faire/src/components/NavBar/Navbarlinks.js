@@ -57,15 +57,15 @@ function NavLinks() {
 
         {authenticate.isAdmin && (
           <li className="nav-item">
-            <a className="nav-link" href="/admin/product"> Admin Product</a>
+            <a className="nav-link" href="/admin/products"> Admin Product</a>
           </li>
         )}
 
-        {authenticate.isAdmin && (
+        {/* {authenticate.isAdmin && (
           <li className="nav-item">
             <a className="nav-link" href="/admin/users"> Admin</a>
           </li>
-        )}
+        )} */}
         {authenticate.isAdmin && (
           <li className="nav-item">
             <a className="nav-link" href="/admin/users"> All Users</a>

@@ -89,6 +89,7 @@ const handleChange = (event) => {
         <div>
         <SortPage
         change={handleChange}
+        value={value}
         />
    <ItemList title="Shoes" items={item}/>
    

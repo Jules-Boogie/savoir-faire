@@ -14,10 +14,10 @@ return (
     <Form.Group  controlId="exampleForm.ControlSelect1">
     <Form.Label> Sort By </Form.Label>
     <Form.Control onChange={props.change} value={props.value} as="select">
-    <option className="btn" value="highest" > Highest Price</option>
-      <option className="btn" value="lowest" > Lowest Price</option>
-      <option className="btn" value="loved" > Most Loved </option>
-      <option className="btn" value="newest"  > Newest</option>
+    <option  value="highest" > Highest Price</option>
+      <option  value="lowest" > Lowest Price</option>
+      <option  value="loved" > Most Loved </option>
+      <option  value="newest"  > Newest</option>
     </Form.Control>
   </Form.Group>
 

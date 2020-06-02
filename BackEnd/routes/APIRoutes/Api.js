@@ -5,23 +5,23 @@ const CartController = require("../../controllers/ShoppingCart/ShoppingCartContr
 
 router
   .route("/products")
-  
+
   .get(productController.findAllByProducts)
 
-  router
+router
   .route("/products/create")
   .post(productController.create)
-  
-  router
+
+router
   .route("/products/clothing")
   .get(productController.findAllClothing)
-  router
+router
   .route("/products/shoes")
   .get(productController.findAllShoes)
-  router
+router
   .route("/products/accessories")
   .get(productController.findAllAccessories)
-  
+
 
 router
   .route("/products/:id")
@@ -36,26 +36,26 @@ router
 router
   .route("/products/:id/fans")
   .post(productController.AddFavorites)
-  
+
 
 router
   .route("/")
   .get(UsersController.findAll)
-  
+
 router
   .route("/signup")
   .post(UsersController.create);
 
-  router
+router
   .route("/signin")
   .post(UsersController.Login)
-  
 
-  router
+
+router
   .route("/signin/admin")
   .post(UsersController.LoginAsAdmin);
-  
-  
+
+
 router
   .route("/:id")
   .get(UsersController.findOne)
@@ -67,18 +67,18 @@ router
   .post(UsersController.AddUserFavorites)
   .put(UsersController.RemoveUserFavorites)
 
-  router
-.route("/:id/wishlist/populate")
-.get(UsersController.findUserFavorites)
+router
+  .route("/:id/wishlist/populate")
+  .get(UsersController.findUserFavorites)
 
 
 router
-.route("/:id/cart")
-.get(UsersController.findUserCart)
-.post(UsersController.AddUserCart)
-.put(UsersController.RemoveUserCart)
+  .route("/:id/cart")
+  .get(UsersController.findUserCart)
+  .post(UsersController.AddUserCart)
+  .put(UsersController.RemoveUserCart)
 
 router
-.route("/:id/cart/populate")
-.get(UsersController.findUserCart)
+  .route("/:id/cart/populate")
+  .get(UsersController.findUserCart)
 module.exports = router;

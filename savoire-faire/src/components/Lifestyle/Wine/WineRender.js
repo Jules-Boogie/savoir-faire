@@ -3,7 +3,7 @@ import { Card, Col, Row, ListGroup, ListGroupItem, Button } from "react-bootstra
 // import { Link } from "react-router-dom";
 
 const style={
-  fontFamily:" 'Roboto', sans-serif"
+  fontFamily: "'Chelsea Market', cursive"
 }
 
 function wineRender(props) {
@@ -12,7 +12,7 @@ function wineRender(props) {
 
   return (
     <div>
-      <Row>
+      <Row style={style}>
         <Col >
          
           <ListGroup>
@@ -21,7 +21,7 @@ function wineRender(props) {
             ))}
 
           </ListGroup>
-          <p className="container" style={style}>
+          <p className="container" >
             {props.pairingText}
           </p>
 

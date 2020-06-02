@@ -24,11 +24,11 @@ function DashBoardPage() {
 
     })
 
-    if(authenticate.isLoggedIn){
+    // if(authenticate.isLoggedIn){
 
-        setUser(authenticate.userId)
+    //     setUser(authenticate.userId)
     
-    }
+    // }
 
     
 
@@ -37,7 +37,7 @@ function DashBoardPage() {
 
         loadAll()
 
-    }, [])
+    },[])
 
 
     const loadAll = () => {
@@ -60,12 +60,12 @@ function DashBoardPage() {
             
         };
 
-        const addtoFavorite = (userid) =>{
-            APIu.addtoFavorite(userid, 
-                productState.id
-            )
+        // const addtoFavorite = (userid) =>{
+        //     APIu.addtoFavorite(userid, 
+        //         productState.id
+        //     )
 
-        }
+        // }
     
 
 
@@ -98,26 +98,31 @@ function DashBoardPage() {
 
     const handleChange = (event) => {
         setValue(event.target.value)
-        if (value === "highest") {
+        if (value === "lowest") {
             console.log("filter")
             const itemHighest = [...item]
-            itemHighest.sort((first, second) => (first.Price > second.Price ? 1 : -1))
+            itemHighest.sort((first, second) => ( second.Price - first.Price ))
             setItem(itemHighest)
-        } else if (value === "lowest") {
+        } else if (value === "highest") {
             console.log("filter")
             const itemlowest = [...item]
-            itemlowest.sort((first, second) => (first.Price < second.Price ? 1 : -1))
+            itemlowest.sort((first, second) => (first.Price - second.Price))
             setItem(itemlowest)
-
+    
         } else if (value === "newest") {
             console.log("filter")
             const itemnewest = [...item]
-            itemnewest.sort((first, second) => (first.Date < second.Date ? 1 : -1))
+            itemnewest.sort((first, second) => (first.Date - second.Date))
             setItem(itemnewest)
+        } else if (value === "loved") {
+            console.log("filter")
+            const itemloved = [...item]
+            itemloved.sort((first, second) => (second.Fans.length - first.Fans.length))
+            setItem(itemloved)
         } else {
             const itemDefault = [...item]
             setItem(itemDefault)
-
+    
         }
     }
 
@@ -132,8 +137,9 @@ function DashBoardPage() {
         <div>
             <SortPage
                 change={handleChange}
+                value={value}
             />
-            <ItemList like={addtoFavorite} items={item} />
+            <ItemList items={item} />
 
 
         </div>
