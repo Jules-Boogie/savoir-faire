@@ -23,7 +23,8 @@ function AddButton() {
 
   const handleInputChange = event => {
 
-    const { name, value } = event.target
+    const { name, value}  = event.target
+
     setProductState({
       ...productState,
       [name]: value
@@ -73,7 +74,7 @@ function AddButton() {
         imageUrl={productState.imageUrl}
         name={productState.name}
         onChange={handleInputChange}
-        onClick={handleSubmitBtn}
+        clicked={handleSubmitBtn}
       />
     </>
   );

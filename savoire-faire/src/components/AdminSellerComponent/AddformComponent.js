@@ -17,17 +17,17 @@ function addItemModal(props) {
             Add An Item
           </Modal.Title>
         </Modal.Header>
-        <Form>
+        {/* <Form> */}
         <Modal.Body>
          <AddForm  />
         </Modal.Body>
         <Modal.Footer>
-        <Button variant="primary" {...props.onClick}>
+        <Button variant="primary" onClick={props.clicked}>
             Save Changes 
           </Button>
           <Button onClick={props.onHide}>Close</Button>
         </Modal.Footer>
-        </Form>
+        {/* </Form> */}
       </Modal>
     );
   }
