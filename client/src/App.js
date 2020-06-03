@@ -19,7 +19,7 @@ import WineComparison from "./Pages/WineComparisonPage"
 import MealPlan from "./Pages/MealPlan"
 import AuthenticationContext from "./Utils/Context/authenticationContext"
 import ShoppingCartPage from "./Pages/ShoppingCart"
-import CheckoutPage from "./Pages/Checkout"
+
 import Footer from "./components/Footer/footer"
 import Signin from "./components/SignUpsignInForm/signin"
 import Signup from "./components/SignUpsignInForm/signup"
