@@ -43,7 +43,7 @@ function App() {
   
  
 
-  const { token, login, adminLogin, logout, userId, adtoken } = Auth();
+  const { token, login, adminLogin, logout, userId, adtoken, adminLogout } = Auth();
 
 
 
@@ -212,7 +212,7 @@ function App() {
         token: token,
         userId: userId,
         login: login,
-        logout: logout, isAdmin: !!adtoken, adminLogin: adminLogin }}>
+        logout: logout, isAdmin: !!adtoken, adminLogin: adminLogin, adminLogout:adminLogout  }}>
           <NavBar  />
           <FilterPane/>
          

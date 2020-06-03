@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import logo from '../../src/SV.png';
 import '../../src/App.css';
 import Hero from "../components/Hero"
 import { Jumbotron, Container } from "react-bootstrap"
+import Authentication from "../Utils/Context/authenticationContext"
 
-function welcomePage() {
+function WelcomePage() {
+
+  const authenticate = useContext(Authentication)
   return (
     <div className="App">
       <Hero backgroundImage="https://st.mngbcn.com/rcs/pics/static/T4/fotos/outfit/S20/43025766_70-99999999_01.jpg?ts=1555320836972&imwidth=100&imdensity=1" >
@@ -13,11 +16,14 @@ function welcomePage() {
       <Jumbotron fluid>
                     <Container>
                         <h1> Savoire Faire </h1>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        {!authenticate.isLoggedIn && (
+                        <p> Welcome to my online store. Please login to buy and explore our lifestyle Page.</p>
+                        )}
+                        <p> Thanks for signing in. Now you can shop and explore the lifestyle page. </p>
                     </Container>
                 </Jumbotron>
     </div>
   );
 }
 
-export default welcomePage;
+export default WelcomePage;

@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Nav } from "react-bootstrap"
 import DropDown from "../../NavBar/DropDown"
+import Authentication from "../../../Utils/Context/authenticationContext"
 
 
-function filterPane(){
+function FilterPane(){
+
+  const authenticate = useContext(Authentication)
 
 return (
+  <div>
+  {!authenticate.isAdmin && (
+    
     <Nav className="text-secondary"
   
 >
@@ -18,18 +24,21 @@ return (
   <Nav.Item className="mx-auto">
     <Nav.Link href="/products/accessories">ACCESSORIES</Nav.Link>
   </Nav.Item>
-  <Nav.Item className="mx-auto">
+  {/* <Nav.Item className="mx-auto">
   <Nav.Link href="/products/skincare">SKINCARE</Nav.Link>
   </Nav.Item>
   <Nav.Item className="mx-auto">
   <Nav.Link href="/products/beauty"> BEAUTY </Nav.Link>
-  </Nav.Item>
+  </Nav.Item> */}
   <Nav.Item>
   <DropDown/>
   </Nav.Item>
 </Nav>
+
+)}
+</div>
 )
 
 }
 
-export default filterPane;
+export default FilterPane;

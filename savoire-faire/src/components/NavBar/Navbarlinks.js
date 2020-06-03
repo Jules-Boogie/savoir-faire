@@ -73,7 +73,7 @@ function NavLinks() {
           </li>
         )}
         {authenticate.isAdmin && (
-          <Button onClick={authenticate.logout}> logout  </Button>
+          <Button onClick={authenticate.adminLogout}> logout  </Button>
         )}
 
 

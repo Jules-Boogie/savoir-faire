@@ -146,10 +146,10 @@ module.exports = {
   RemoveUserFavorites: function (req, res) {
     console.log(req.body)
     console.log(req.params.id)
-    // db.Users.findByIdAndUpdate({ _id: req.params.id }, { $pull: { favorites: req.body.id } }) //ask about this please
-    //   //here I am saying that the req.body.id is the id of the product
-    //   .then(dbModel => res.json(dbModel))
-    //   .catch(err => res.status(422).json(err));
+    db.Users.findByIdAndUpdate({ _id: req.params.id }, { $pull: { favorites: req.body.id } }) //ask about this please
+      //here I am saying that the req.body.id is the id of the product
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   },
   RemoveUserCart: function (req, res) {
     console.log(req.body.prodid)

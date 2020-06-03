@@ -8,7 +8,7 @@ function shoppingcartCard(props) {
             <Card.Body>
                 <Card.Title>{props.title}</Card.Title>
                 <Card.Img variant="top" src={props.image} />
-                <Card.Subtitle className="mb-2 text-muted">{props.quantity}</Card.Subtitle>
+                <Card.Subtitle className="mb-2 text-muted"> Total amount in cart: {props.quantity}</Card.Subtitle>
                 <Card.Subtitle className="mb-2 text-muted">{props.price}</Card.Subtitle>
 
                <Button onClick={props.clicked}> Remove</Button>

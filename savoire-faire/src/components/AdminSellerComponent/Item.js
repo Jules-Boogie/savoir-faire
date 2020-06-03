@@ -14,7 +14,7 @@ function itemList(props){
                     <div className="jumbotron text-center jumbotron-fluid">
                         <div className="container">
                             <h1 className="display-4"> Items Listed for Sale</h1>
-                            <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                            <p className="lead">These are all the items on sale on the website.</p>
                         </div>
                     </div>
 

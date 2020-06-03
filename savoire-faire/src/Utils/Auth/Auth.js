@@ -50,7 +50,7 @@ export const Auth = () => {
 
   }, []);
 
-  const adminlogout = useCallback(() => {
+  const adminLogout = useCallback(() => {
     setadToken(null);
     setTokenExpirationDate(null);
     setUserId(null);
@@ -67,6 +67,15 @@ export const Auth = () => {
       clearTimeout(logoutTimer);
     }
   }, [token, logout, tokenExpirationDate]);
+
+  useEffect(() => {
+    if (adtoken && tokenExpirationDate) {
+      const remainingTime = tokenExpirationDate.getTime() - new Date().getTime();
+      logoutTimer = setTimeout(adminLogout, remainingTime);
+    } else {
+      clearTimeout(logoutTimer);
+    }
+  }, [adtoken, adminLogout, tokenExpirationDate]);
 
   useEffect(() => {
     const storedData = JSON.parse(localStorage.getItem('userData'));
@@ -90,5 +99,5 @@ export const Auth = () => {
     }
   }, [adminLogin]);
 
-  return { token, adtoken, login, adminLogin, adminlogout, logout, userId };
+  return { token, adtoken, login, adminLogin, adminLogout, logout, userId };
 };

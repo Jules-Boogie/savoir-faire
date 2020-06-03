@@ -4,6 +4,7 @@ import APIu from "../Utils/API/Users/API_Users"
 import ProductDetail from "../components/MainDashBoard/ProductDetail/ProductDetail"
 import { useParams } from 'react-router-dom';
 import AuthenticateContext from "../Utils/Context/authenticationContext"
+import Alert from "../components/MainDashBoard/ProductDetail/Alert"
 // import { useParams } from "react-router-dom";
 
 
@@ -13,7 +14,7 @@ function ProductDetailPage(){
     // const [userId, setUserId] = useState({
 
     // })
-
+const [show, setShow] = useState(false);
    
 
 const [comment, setComment] = useState('')
@@ -65,6 +66,7 @@ const [ cartObject, setCartobject] = useState({
         console.log("add favorite button works")
         APIu.addtoFavorite(userid, {id})
         API.saveProductFans(id,{userid})
+        setShow(true)
 
     }
 
@@ -107,7 +109,8 @@ const [ cartObject, setCartobject] = useState({
                 <AuthenticateContext.Consumer>
                     {(context) =>
                 <ProductDetail key={productState.productid}
-
+                    show={show}
+                    onHide={()=> setShow(false)}
                     name={productState.product.Name}
                     price={productState.product.Price}
                     color={productState.product.Color}
