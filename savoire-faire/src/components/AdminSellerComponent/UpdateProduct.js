@@ -20,14 +20,14 @@ function updateProduct(props) {
                 <InputGroup.Prepend>
                   <InputGroup.Text>$ </InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl onChange={props.Changed} placeholder={props.price} value={props.price} aria-label="Amount (to the nearest dollar)" />
+                <FormControl onChange={props.Changed} placeholder={props.price} aria-label="Amount (to the nearest dollar)" />
                 <InputGroup.Append>
                   <InputGroup.Text>.00</InputGroup.Text>
                 </InputGroup.Append>
               </InputGroup>
               <InputGroup className="mb-3">
                 <FormControl
-                  onChange={props.Changed} value={props.description}
+                  onChange={props.Changed} 
                   placeholder={props.description}
                   aria-label="Recipient's username"
                   aria-describedby="basic-addon2"
@@ -38,14 +38,14 @@ function updateProduct(props) {
                 <InputGroup.Prepend>
                   <InputGroup.Text> Description</InputGroup.Text>
                 </InputGroup.Prepend>
-                <FormControl as="textarea" onChange={props.Changed} value={props.description} aria-label="With textarea" />
+                <FormControl as="textarea" onChange={props.Changed} placeholder={props.description} aria-label="With textarea" />
               </InputGroup>
               <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                   <InputGroup.Text>Quantity</InputGroup.Text>
                 </InputGroup.Prepend>
                 
-                <FormControl onChange={props.Changed} value={props.quantity} aria-label="Amount (to the nearest dollar)" />
+                <FormControl onChange={props.Changed} placeholder={props.quantity} aria-label="Amount (to the nearest dollar)" />
                
               </InputGroup>
 

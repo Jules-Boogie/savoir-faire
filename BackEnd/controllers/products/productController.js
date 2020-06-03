@@ -53,7 +53,10 @@ create: function(req, res) {
     .catch(err => (err.dbModel));
 },
 update: function(req, res) {
-    db.Products.findOneAndUpdate({ _id: req.params.id }, req.body)
+  console.log(req.body)
+  const {Name , Description, Price, Quantity} = req.body
+    db.Products.findOneAndUpdate({ _id: req.params.id }, req.body
+       )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
 },

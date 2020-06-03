@@ -48,10 +48,10 @@ const handleInputChange = event => {
     })
     
 }
-const handleFormSubmit = (event, id) => {
+const handleFormSubmit = (id) => {
     //find item by id and show/update the state of the item
     // send put request to server with the new added value
-   
+   console.log("clicked update")
     API.updateProduct(id, {
         Name:productState.name,
         Description:productState.Description,
