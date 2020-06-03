@@ -32,13 +32,35 @@ $ npm express
 
 ### Application Photos
 
+Before Login a user would see this screen:
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/before%20login.PNG)
+
+After Login 
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/afterlogin.PNG)
+
+How Items are displayed on the site:
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/items.PNG)
+
+The Project Details page with likes, a slide show of images and comments 
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/productdetail.PNG)
+
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/photoslidescommentreviewsession.PNG)
+
+Wishlist
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/wishlistpage.PNG)
+
+
+Shopping Cart
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/cart.PNG)
+
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/shoppingcart.PNG)
 
 
 
 
 
 ### Code Highlights
-
+ The code below shows all the steps it takes to add an item to a user's wishlist from the Backend to the Frontend. 
 ```
 .route("/products/:id/fans")
 .post(productController.AddFavorites)
