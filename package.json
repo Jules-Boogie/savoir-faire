@@ -1,0 +1,32 @@
+{
+  "name": "savoir-faire",
+  "version": "1.0.0",
+  "description": "Welcome to this repository!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jules-Boogie/savoir-faire.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bcrypt": "4.0.1",
+    "express": "^4.17.1",
+    "mongoose": "5.9.17",
+    "jsonwebtoken": "8.5.1",
+    "stripe": "8.56.0",
+    "if-env":"1.0.4"
+  }
+}
