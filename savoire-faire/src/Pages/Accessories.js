@@ -9,7 +9,7 @@ import SortPage from "../components/MainDashBoard/FilterPane/sortDropDown"
 function AccessoriesPage () {
 
     const [item, setItem] = useState([])
-    const [value, setValue] = useState("select")
+    const [value, setValue] = useState('highest')
 
 // define states 
 

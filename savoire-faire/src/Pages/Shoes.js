@@ -8,7 +8,7 @@ import API from "../Utils/API/Products/API_product"
 function ShoesPage () {
 
     const [item, setItem] = useState([])
-    const [value, setValue] = useState("select")
+    const [value, setValue] = useState('highest')
 
     // define states 
     
@@ -53,23 +53,23 @@ function ShoesPage () {
 const handleChange = (event) => {
     setValue(event.target.value)
     if (value === "lowest") {
-        console.log("filter")
+        console.log("lowest")
         const itemHighest = [...item]
         itemHighest.sort((first, second) => ( second.Price - first.Price ))
         setItem(itemHighest)
     } else if (value === "highest") {
-        console.log("filter")
+        console.log("highest")
         const itemlowest = [...item]
         itemlowest.sort((first, second) => (first.Price - second.Price))
         setItem(itemlowest)
 
     } else if (value === "newest") {
-        console.log("filter")
+        console.log("newest")
         const itemnewest = [...item]
         itemnewest.sort((first, second) => (first.Date - second.Date))
         setItem(itemnewest)
     } else if (value === "loved") {
-        console.log("filter")
+        console.log("loved")
         const itemloved = [...item]
         itemloved.sort((first, second) => (second.Fans.length - first.Fans.length))
         setItem(itemloved)

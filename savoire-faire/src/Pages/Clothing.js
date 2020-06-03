@@ -8,7 +8,7 @@ import API from "../Utils/API/Products/API_product"
 function ClothingPage() {
 
     const [item, setItem] = useState([])
-    const [value, setValue] = useState("select")
+    const [value, setValue] = useState("highest")
 
     // define states 
 

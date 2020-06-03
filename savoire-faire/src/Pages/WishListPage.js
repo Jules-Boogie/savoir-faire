@@ -81,9 +81,10 @@ function WishListPage(props) {
           <button className=" text-center" onClick={() => loadFavorites(authenticate.userId)}> Click to See Favorites List</button>
         </div>
         <div className="container col">
-          {items.map((item) => {
-            return (
+          
               <CardGroup>
+              {items.map((item) => {
+            return (
                 <ItemCard
                   // clicked={props.click}
                   id={item._id}
@@ -97,9 +98,10 @@ function WishListPage(props) {
 
 
                 />
+                )
+              })}
               </CardGroup>
-            )
-          })}
+         
         </div>
       </div>
 }

@@ -10,7 +10,7 @@ import authenticateContext from "../Utils/Context/authenticationContext"
 function DashBoardPage() {
 
     const [item, setItem] = useState([])
-    const [value, setValue] = useState("select")
+    const [value, setValue] = useState('highest')
     const [productState, setProductState] = useState({
         id:"",
         price: 0,
@@ -138,6 +138,7 @@ function DashBoardPage() {
             <SortPage
                 change={handleChange}
                 value={value}
+                
             />
             <ItemList items={item} />
 
