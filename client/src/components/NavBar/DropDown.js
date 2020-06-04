@@ -26,7 +26,7 @@ function DropDown(){
     <Dropdown.Item href="/users/mealplan">Meal Plan</Dropdown.Item>
    
 
-    <Dropdown.Item href="#/action-3"> Health and Fashion </Dropdown.Item>
+    
     
   </Dropdown.Menu>
 </Dropdown>
