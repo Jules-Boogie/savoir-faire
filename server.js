@@ -9,9 +9,9 @@ const PORT = process.env.PORT || 3002;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/public"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/public"));
+// }
 
 
 if (process.env.NODE_ENV === "production") {
