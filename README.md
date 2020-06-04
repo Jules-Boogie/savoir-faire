@@ -8,7 +8,7 @@ The buyer can view product details, add products to cart or save products to buy
 
 
 ### Deployed Link 
-
+https://savoire-faire.herokuapp.com/
 
 
 
@@ -33,27 +33,27 @@ $ npm express
 ### Application Photos
 
 Before Login a user would see this screen:
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/before%20login.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/before%20login.PNG)
 
 After Login 
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/afterlogin.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/afterlogin.PNG)
 
 How Items are displayed on the site:
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/items.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/items.PNG)
 
 The Project Details page with likes, a slide show of images and comments 
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/productdetail.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/productdetail.PNG)
 
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/photoslidescommentreviewsession.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/photoslidescommentreviewsession.PNG)
 
 Wishlist
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/wishlistpage.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/wishlistpage.PNG)
 
 
 Shopping Cart
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/cart.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/cart.PNG)
 
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/shoppingcart.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/shoppingcart.PNG)
 
 
 
