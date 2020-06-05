@@ -10,6 +10,27 @@ The buyer can view product details, add products to cart or save products to buy
 ### Deployed Link 
 https://savoire-faire.herokuapp.com/
 
+### How to use
+Click Authenticate and Sign up to access user interface
+
+To sign in as admin, click admin and sign in using the details below:
+
+"email" : "justina@gmail.com",
+
+ "password" : "1234567"
+ 
+
+When signed in as user, you can click on an item to see details, 
+you can add item to cart, add item to wishlist, and customer testimonials. You can go to wishlist and cart, and remove items from there. 
+
+
+After signing up, users have access to the lifestyle session which is still under construction. Right now it shows information about wine and recipes. I look forward to adding more fashion related items in lifestyle session. 
+
+
+
+When signed in as an admin, you can add and remove items. You can see a list of users that have been signed up to use the app. 
+
+
 
 
 ### Technologies Used
@@ -106,6 +127,9 @@ const handleFavoriteBtn = (userid) => {
      
 
 ```
+
+## Future Development
+ To further develop my application, I will add Google Pay and I will improve the user experience. 
 
 
 ## Clone Repository
