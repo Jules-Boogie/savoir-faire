@@ -129,7 +129,7 @@ const handleFavoriteBtn = (userid) => {
 ```
 
 ## Future Development
- To further develop my application, I will add Google Pay and I will improve the user experience. 
+ This application was initially built in 2 weeks as a solo project and therefore, has some little quirks that can be fixed with time and practice. To further develop my application, I will add Google Pay and I will improve the user experience. 
 
 
 ## Clone Repository
