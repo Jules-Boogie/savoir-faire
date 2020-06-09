@@ -40,6 +40,8 @@ When signed in as an admin, you can add and remove items. You can see a list of 
 | [React](https://reactjs.org/)                |   A declarative, component based Javascript library for building interactive user interface                 |
 | [MongoDB](https://www.mongodb.com/)                |   NoSql database that stores data in JSON-like documents.                |
 | [Mongoose](https://mongoosejs.com/)                |  Mongoose lets us model the data for mongodb.                |
+| [Json Web Token](https://jwt.io/)                |  This was used to generate a token that is saved in the server and sent to the client side and passed into the login function.               |
+| [Bcrypt](https://www.npmjs.com/package/bcrypt)                |  NPM package used to encrypt password before saving to database               |
 
 
 
