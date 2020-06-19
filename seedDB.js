@@ -1,5 +1,9 @@
+
 const mongoose = require("mongoose");
-const db = require("../models");
+
+
+const db = require("./models");
+
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://savoire-faire:1234567e@ds125871.mlab.com:25871/heroku_gqmz6rkd");
 
@@ -155,3 +159,5 @@ db.Users.remove({})
     console.error(err);
     process.exit(1);
   });
+
+
