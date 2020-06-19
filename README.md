@@ -8,6 +8,27 @@ The buyer can view product details, add products to cart or save products to buy
 
 
 ### Deployed Link 
+https://savoire-faire.herokuapp.com/
+
+### How to use
+Click Authenticate and Sign up to access user interface
+
+To sign in as admin, click admin and sign in using the details below:
+
+"email" : "justina@gmail.com",
+
+ "password" : "1234567"
+ 
+
+When signed in as user, you can click on an item to see details, 
+you can add item to cart, add item to wishlist, and customer testimonials. You can go to wishlist and cart, and remove items from there. 
+
+
+After signing up, users have access to the lifestyle session which is still under construction. Right now it shows information about wine and recipes. I look forward to adding more fashion related items in lifestyle session. 
+
+
+
+When signed in as an admin, you can add and remove items. You can see a list of users that have been signed up to use the app. 
 
 
 
@@ -19,6 +40,8 @@ The buyer can view product details, add products to cart or save products to buy
 | [React](https://reactjs.org/)                |   A declarative, component based Javascript library for building interactive user interface                 |
 | [MongoDB](https://www.mongodb.com/)                |   NoSql database that stores data in JSON-like documents.                |
 | [Mongoose](https://mongoosejs.com/)                |  Mongoose lets us model the data for mongodb.                |
+| [Json Web Token](https://jwt.io/)                |  This was used to generate a token that is saved in the server and sent to the client side and passed into the login function.               |
+| [Bcrypt](https://www.npmjs.com/package/bcrypt)                |  NPM package used to encrypt password before saving to database               |
 
 
 
@@ -33,27 +56,27 @@ $ npm express
 ### Application Photos
 
 Before Login a user would see this screen:
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/before%20login.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/before%20login.PNG)
 
 After Login 
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/afterlogin.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/afterlogin.PNG)
 
 How Items are displayed on the site:
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/items.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/items.PNG)
 
 The Project Details page with likes, a slide show of images and comments 
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/productdetail.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/productdetail.PNG)
 
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/photoslidescommentreviewsession.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/photoslidescommentreviewsession.PNG)
 
 Wishlist
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/wishlistpage.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/wishlistpage.PNG)
 
 
 Shopping Cart
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/cart.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/cart.PNG)
 
-![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/savoire-faire/public/app%20photos/shoppingcart.PNG)
+![App Photo](https://github.com/Jules-Boogie/savoir-faire/blob/master/client/public/app%20photos/shoppingcart.PNG)
 
 
 
@@ -106,6 +129,9 @@ const handleFavoriteBtn = (userid) => {
      
 
 ```
+
+## Future Development
+ This application was initially built in 2 weeks as a solo project and therefore, has some little quirks that can be fixed with time and practice. To further develop my application, I will add Google Pay and I will improve the user experience. 
 
 
 ## Clone Repository
