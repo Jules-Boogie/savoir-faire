@@ -82,7 +82,9 @@ Shopping Cart
 
 
 
-### Code Highlights
+## Code Highlights
+
+### Adding an Item to the like list
  The code below shows all the steps it takes to add an item to a user's wishlist from the Backend to the Frontend. 
 ```
 .route("/products/:id/fans")
@@ -129,6 +131,174 @@ const handleFavoriteBtn = (userid) => {
      
 
 ```
+
+### Authenticating a new user
+#### Context API
+```
+
+const AuthenticationContext = React.createContext({
+    isLoggedIn: false,
+    userId: null,
+    token: null,
+    login: () => {},
+    logout: () => {},
+    isAdmin:false,
+    adminLogin: () => {},
+    adminLogout: () => {}
+})
+
+export default AuthenticationContext;
+
+```
+
+
+#### React
+
+```
+const signupSubmithandler = (event) => {
+    event.preventDefault()
+    console.log(formdata.firstname)
+
+    // const hashedpassword = Bcryptjs.hash(inputState.password, 10)
+    API.addUser({
+      firstName: formdata.firstname,
+      password: formdata.password,
+      lastName: formdata.lastname,
+      email: formdata.email
+    })
+      .then(res => {
+        authenticate.login(res.data.userId, res.data.token)
+      }
+      )
+
+
+    // const signupToken = Webtoken.sign({email: inputState.email}, 'test')
+    // .then(res.json({email: inputState.email, token:signupToken}))
+  }
+
+
+```
+#### User Controller (Backend)
+
+```
+create: function (req, res) {
+    console.log(req.body)
+    const { firstName, lastName, email, password } = req.body
+    Bcryptjs.hash(password, 10, function (err, hash) {
+      if (err) throw err;
+      db.Users.create({
+        email: email,
+        password: hash,
+        firstName: firstName,
+        lastName: lastName
+      })
+
+        .then(dbResult => {
+          let signupToken = Webtoken.sign({ email: dbResult.email }, 'test sugar', { expiresIn: '1h' })
+          res.json({ userId: dbResult.id, token: signupToken })
+
+        })
+        .catch(error => res.status(422).json(error));
+
+    }
+
+    )
+  },
+
+
+  Login: function (req, res) {
+    const { email, password } = req.body;
+
+    db.Users.findOne({ email: email })
+
+      .then(dbResult => {
+        console.log(dbResult);
+        if (dbResult === null) {
+          res.json(false)
+        }
+        (Bcryptjs.compare(password, dbResult.password, function (err, result) {
+          if (err) throw err;
+          if (result) {
+            console.log("yass")
+            let signinToken = Webtoken.sign({ email: dbResult.email }, 'gosister', { expiresIn: '1h' })
+            res.json({ userId: dbResult._id, token: signinToken })
+
+          }
+        }))
+
+      })
+      .catch(error => res.status(422).json(error));
+  },
+```
+
+
+
+#### API
+```
+router
+  .route("/signup")
+  .post(UsersController.create);
+
+router
+  .route("/signin")
+  .post(UsersController.Login)
+  
+  ```
+
+### Authenticating an administrator
+
+#### React
+
+```
+ const adminSubmithandler = (event) => {
+    event.preventDefault()
+    console.log("clicked")
+
+    API.LoginAdmin({
+      email: formdata.email,
+      password:formdata.password
+    })
+    .then(res => {setUser(res.data) 
+      console.log(res.data)
+       authenticate.adminLogin(res.data.adminId, res.data.token)
+    })
+     .catch(err => console.log(err))
+  }
+
+
+```
+### User Controller (Backend)
+```
+ LoginAsAdmin: function (req, res) {
+    const { email, password } = req.body;
+    db.Users.findOne({ role: "admin", email: email })
+      .then(dbResult => {
+        // console.log(dbResult);
+        if (dbResult) {
+          let adminToken = Webtoken.sign({ email: dbResult.email }, 'testsugar', { expiresIn: '1h' })
+          res.json({ adminId: dbResult._id, token: adminToken })
+          // console.log(signinToken)
+
+        }
+
+
+      }
+      )
+
+
+      .catch(error => res.status(422).json(error));
+  }
+
+```
+
+
+#### API 
+```
+router
+  .route("/signin/admin")
+  .post(UsersController.LoginAsAdmin);
+```
+
 
 ## Future Development
  This application was initially built in 2 weeks as a solo project and therefore, has some little quirks that can be fixed with time and practice. To further develop my application, I will add Google Pay and I will improve the user experience. 
